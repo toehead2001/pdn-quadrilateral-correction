@@ -54,7 +54,7 @@ namespace QuadrilateralCorrectionEffect
         }
 
         #region Values-Changed events
-        private void numericUpDownTopLeftX_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownTopLeft_ValueChanged(object sender, EventArgs e)
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
@@ -68,21 +68,7 @@ namespace QuadrilateralCorrectionEffect
             FinishTokenUpdate();
         }
 
-        private void numericUpDownTopLeftY_ValueChanged(object sender, EventArgs e)
-        {
-            quadControl11.ValueChanged -= quadControl11_ValueChanged;
-
-            Point topLeft = new Point();
-            topLeft.X = (int)Math.Round(numericUpDownTopLeftX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            topLeft.Y = (int)Math.Round(numericUpDownTopLeftY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubTL = topLeft;
-
-            quadControl11.ValueChanged += quadControl11_ValueChanged;
-
-            FinishTokenUpdate();
-        }
-
-        private void numericUpDownTopRightX_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownTopRight_ValueChanged(object sender, EventArgs e)
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
@@ -96,21 +82,7 @@ namespace QuadrilateralCorrectionEffect
             FinishTokenUpdate();
         }
 
-        private void numericUpDownTopRightY_ValueChanged(object sender, EventArgs e)
-        {
-            quadControl11.ValueChanged -= quadControl11_ValueChanged;
-
-            Point topright = new Point();
-            topright.X = (int)Math.Round(numericUpDownTopRightX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            topright.Y = (int)Math.Round(numericUpDownTopRightY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubTR = topright;
-
-            quadControl11.ValueChanged += quadControl11_ValueChanged;
-
-            FinishTokenUpdate();
-        }
-
-        private void numericUpDownBottomRightX_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownBottomRight_ValueChanged(object sender, EventArgs e)
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
@@ -124,35 +96,7 @@ namespace QuadrilateralCorrectionEffect
             FinishTokenUpdate();
         }
 
-        private void numericUpDownBottomRightY_ValueChanged(object sender, EventArgs e)
-        {
-            quadControl11.ValueChanged -= quadControl11_ValueChanged;
-
-            Point bottomRight = new Point();
-            bottomRight.X = (int)Math.Round(numericUpDownBottomRightX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            bottomRight.Y = (int)Math.Round(numericUpDownBottomRightY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubBR = bottomRight;
-
-            quadControl11.ValueChanged += quadControl11_ValueChanged;
-
-            FinishTokenUpdate();
-        }
-
-        private void numericUpDownBottomLeftX_ValueChanged(object sender, EventArgs e)
-        {
-            quadControl11.ValueChanged -= quadControl11_ValueChanged;
-
-            Point bottomLeft = new Point();
-            bottomLeft.X = (int)Math.Round(numericUpDownBottomLeftX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            bottomLeft.Y = (int)Math.Round(numericUpDownBottomLeftY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubBL = bottomLeft;
-
-            quadControl11.ValueChanged += quadControl11_ValueChanged;
-
-            FinishTokenUpdate();
-        }
-
-        private void numericUpDownBottomLeftY_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownBottomLeft_ValueChanged(object sender, EventArgs e)
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
@@ -168,14 +112,14 @@ namespace QuadrilateralCorrectionEffect
 
         private void quadControl11_ValueChanged(object sender)
         {
-            numericUpDownTopLeftX.ValueChanged -= numericUpDownTopLeftX_ValueChanged;
-            numericUpDownTopLeftY.ValueChanged -= numericUpDownTopLeftY_ValueChanged;
-            numericUpDownTopRightX.ValueChanged -= numericUpDownTopRightX_ValueChanged;
-            numericUpDownTopRightY.ValueChanged -= numericUpDownTopRightY_ValueChanged;
-            numericUpDownBottomRightX.ValueChanged -= numericUpDownBottomRightX_ValueChanged;
-            numericUpDownBottomRightY.ValueChanged -= numericUpDownBottomRightY_ValueChanged;
-            numericUpDownBottomLeftX.ValueChanged -= numericUpDownBottomLeftX_ValueChanged;
-            numericUpDownBottomLeftY.ValueChanged -= numericUpDownBottomLeftY_ValueChanged;
+            numericUpDownTopLeftX.ValueChanged -= numericUpDownTopLeft_ValueChanged;
+            numericUpDownTopLeftY.ValueChanged -= numericUpDownTopLeft_ValueChanged;
+            numericUpDownTopRightX.ValueChanged -= numericUpDownTopRight_ValueChanged;
+            numericUpDownTopRightY.ValueChanged -= numericUpDownTopRight_ValueChanged;
+            numericUpDownBottomRightX.ValueChanged -= numericUpDownBottomRight_ValueChanged;
+            numericUpDownBottomRightY.ValueChanged -= numericUpDownBottomRight_ValueChanged;
+            numericUpDownBottomLeftX.ValueChanged -= numericUpDownBottomLeft_ValueChanged;
+            numericUpDownBottomLeftY.ValueChanged -= numericUpDownBottomLeft_ValueChanged;
 
             numericUpDownTopLeftX.Value = quadControl11.NubTL.X * (selection.Width - 1) / (uiImgBounds.Width - 1);
             numericUpDownTopLeftY.Value = quadControl11.NubTL.Y * (selection.Height - 1) / (uiImgBounds.Height - 1);
@@ -189,14 +133,14 @@ namespace QuadrilateralCorrectionEffect
             numericUpDownBottomLeftX.Value = quadControl11.NubBL.X * (selection.Width - 1) / (uiImgBounds.Width - 1);
             numericUpDownBottomLeftY.Value = quadControl11.NubBL.Y * (selection.Height - 1) / (uiImgBounds.Height - 1);
 
-            numericUpDownTopLeftX.ValueChanged += numericUpDownTopLeftX_ValueChanged;
-            numericUpDownTopLeftY.ValueChanged += numericUpDownTopLeftY_ValueChanged;
-            numericUpDownTopRightX.ValueChanged += numericUpDownTopRightX_ValueChanged;
-            numericUpDownTopRightY.ValueChanged += numericUpDownTopRightY_ValueChanged;
-            numericUpDownBottomRightX.ValueChanged += numericUpDownBottomRightX_ValueChanged;
-            numericUpDownBottomRightY.ValueChanged += numericUpDownBottomRightY_ValueChanged;
-            numericUpDownBottomLeftX.ValueChanged += numericUpDownBottomLeftX_ValueChanged;
-            numericUpDownBottomLeftY.ValueChanged += numericUpDownBottomLeftY_ValueChanged;
+            numericUpDownTopLeftX.ValueChanged += numericUpDownTopLeft_ValueChanged;
+            numericUpDownTopLeftY.ValueChanged += numericUpDownTopLeft_ValueChanged;
+            numericUpDownTopRightX.ValueChanged += numericUpDownTopRight_ValueChanged;
+            numericUpDownTopRightY.ValueChanged += numericUpDownTopRight_ValueChanged;
+            numericUpDownBottomRightX.ValueChanged += numericUpDownBottomRight_ValueChanged;
+            numericUpDownBottomRightY.ValueChanged += numericUpDownBottomRight_ValueChanged;
+            numericUpDownBottomLeftX.ValueChanged += numericUpDownBottomLeft_ValueChanged;
+            numericUpDownBottomLeftY.ValueChanged += numericUpDownBottomLeft_ValueChanged;
 
             FinishTokenUpdate();
         }

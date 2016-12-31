@@ -79,7 +79,7 @@
             this.numericUpDownTopLeftX.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownTopLeftX.TabIndex = 0;
             this.numericUpDownTopLeftX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownTopLeftX.ValueChanged += new System.EventHandler(this.numericUpDownTopLeftX_ValueChanged);
+            this.numericUpDownTopLeftX.ValueChanged += new System.EventHandler(this.numericUpDownTopLeft_ValueChanged);
             this.numericUpDownTopLeftX.Enter += new System.EventHandler(this.numericUpDownTopLeftX_Enter);
             // 
             // numericUpDownTopLeftY
@@ -95,7 +95,7 @@
             this.numericUpDownTopLeftY.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownTopLeftY.TabIndex = 1;
             this.numericUpDownTopLeftY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownTopLeftY.ValueChanged += new System.EventHandler(this.numericUpDownTopLeftY_ValueChanged);
+            this.numericUpDownTopLeftY.ValueChanged += new System.EventHandler(this.numericUpDownTopLeft_ValueChanged);
             this.numericUpDownTopLeftY.Enter += new System.EventHandler(this.numericUpDownTopLeftY_Enter);
             // 
             // numericUpDownTopRightX
@@ -111,7 +111,7 @@
             this.numericUpDownTopRightX.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownTopRightX.TabIndex = 2;
             this.numericUpDownTopRightX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownTopRightX.ValueChanged += new System.EventHandler(this.numericUpDownTopRightX_ValueChanged);
+            this.numericUpDownTopRightX.ValueChanged += new System.EventHandler(this.numericUpDownTopRight_ValueChanged);
             this.numericUpDownTopRightX.Enter += new System.EventHandler(this.numericUpDownTopRightX_Enter);
             // 
             // numericUpDownTopRightY
@@ -127,7 +127,7 @@
             this.numericUpDownTopRightY.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownTopRightY.TabIndex = 3;
             this.numericUpDownTopRightY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownTopRightY.ValueChanged += new System.EventHandler(this.numericUpDownTopRightY_ValueChanged);
+            this.numericUpDownTopRightY.ValueChanged += new System.EventHandler(this.numericUpDownTopRight_ValueChanged);
             this.numericUpDownTopRightY.Enter += new System.EventHandler(this.numericUpDownTopRightY_Enter);
             // 
             // numericUpDownBottomRightX
@@ -143,7 +143,7 @@
             this.numericUpDownBottomRightX.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownBottomRightX.TabIndex = 4;
             this.numericUpDownBottomRightX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownBottomRightX.ValueChanged += new System.EventHandler(this.numericUpDownBottomRightX_ValueChanged);
+            this.numericUpDownBottomRightX.ValueChanged += new System.EventHandler(this.numericUpDownBottomRight_ValueChanged);
             this.numericUpDownBottomRightX.Enter += new System.EventHandler(this.numericUpDownBottomRightX_Enter);
             // 
             // numericUpDownBottomRightY
@@ -159,7 +159,7 @@
             this.numericUpDownBottomRightY.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownBottomRightY.TabIndex = 5;
             this.numericUpDownBottomRightY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownBottomRightY.ValueChanged += new System.EventHandler(this.numericUpDownBottomRightY_ValueChanged);
+            this.numericUpDownBottomRightY.ValueChanged += new System.EventHandler(this.numericUpDownBottomRight_ValueChanged);
             this.numericUpDownBottomRightY.Enter += new System.EventHandler(this.numericUpDownBottomRightY_Enter);
             // 
             // numericUpDownBottomLeftX
@@ -175,7 +175,7 @@
             this.numericUpDownBottomLeftX.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownBottomLeftX.TabIndex = 6;
             this.numericUpDownBottomLeftX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownBottomLeftX.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeftX_ValueChanged);
+            this.numericUpDownBottomLeftX.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeft_ValueChanged);
             this.numericUpDownBottomLeftX.Enter += new System.EventHandler(this.numericUpDownBottomLeftX_Enter);
             // 
             // numericUpDownBottomLeftY
@@ -191,7 +191,7 @@
             this.numericUpDownBottomLeftY.Size = new System.Drawing.Size(60, 22);
             this.numericUpDownBottomLeftY.TabIndex = 7;
             this.numericUpDownBottomLeftY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownBottomLeftY.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeftY_ValueChanged);
+            this.numericUpDownBottomLeftY.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeft_ValueChanged);
             this.numericUpDownBottomLeftY.Enter += new System.EventHandler(this.numericUpDownBottomLeftY_Enter);
             // 
             // buttonOK
