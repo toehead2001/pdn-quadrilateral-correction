@@ -181,57 +181,10 @@ namespace QuadrilateralCorrectionEffect
         }
         #endregion
 
-        #region Select All on tab
-        private void numericUpDownTopLeftX_Enter(object sender, EventArgs e)
+        private void numericUpDown_Enter(object sender, EventArgs e)
         {
-            numericUpDownTopLeftX.Select(0, numericUpDownTopLeftX.Text.Length);
+            (sender as System.Windows.Forms.NumericUpDown).Select(0, (sender as System.Windows.Forms.NumericUpDown).Text.Length);
         }
-
-        private void numericUpDownTopLeftY_Enter(object sender, EventArgs e)
-        {
-            numericUpDownTopLeftY.Select(0, numericUpDownTopLeftY.Text.Length);
-        }
-
-        private void numericUpDownTopRightX_Enter(object sender, EventArgs e)
-        {
-            numericUpDownTopRightX.Select(0, numericUpDownTopRightX.Text.Length);
-        }
-
-        private void numericUpDownTopRightY_Enter(object sender, EventArgs e)
-        {
-            numericUpDownTopRightY.Select(0, numericUpDownTopRightY.Text.Length);
-        }
-
-        private void numericUpDownBottomRightX_Enter(object sender, EventArgs e)
-        {
-            numericUpDownBottomRightX.Select(0, numericUpDownBottomRightX.Text.Length);
-        }
-
-        private void numericUpDownBottomRightY_Enter(object sender, EventArgs e)
-        {
-            numericUpDownBottomRightY.Select(0, numericUpDownBottomRightY.Text.Length);
-        }
-
-        private void numericUpDownBottomLeftX_Enter(object sender, EventArgs e)
-        {
-            numericUpDownBottomLeftX.Select(0, numericUpDownBottomLeftX.Text.Length);
-        }
-
-        private void numericUpDownBottomLeftY_Enter(object sender, EventArgs e)
-        {
-            numericUpDownBottomLeftY.Select(0, numericUpDownBottomLeftY.Text.Length);
-        }
-
-        private void numericUpDown1_Enter(object sender, EventArgs e)
-        {
-            numericUpDown1.Select(0, numericUpDown1.Text.Length);
-        }
-
-        private void numericUpDown2_Enter(object sender, EventArgs e)
-        {
-            numericUpDown2.Select(0, numericUpDown2.Text.Length);
-        }
-        #endregion
 
         #region Token Stuff
         protected override QuadrilateralCorrectionConfigToken CreateInitialToken()

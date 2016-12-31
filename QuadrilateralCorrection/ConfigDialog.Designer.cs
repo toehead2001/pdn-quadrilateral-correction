@@ -80,7 +80,7 @@
             this.numericUpDownTopLeftX.TabIndex = 0;
             this.numericUpDownTopLeftX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopLeftX.ValueChanged += new System.EventHandler(this.numericUpDownTopLeft_ValueChanged);
-            this.numericUpDownTopLeftX.Enter += new System.EventHandler(this.numericUpDownTopLeftX_Enter);
+            this.numericUpDownTopLeftX.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownTopLeftY
             // 
@@ -96,7 +96,7 @@
             this.numericUpDownTopLeftY.TabIndex = 1;
             this.numericUpDownTopLeftY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopLeftY.ValueChanged += new System.EventHandler(this.numericUpDownTopLeft_ValueChanged);
-            this.numericUpDownTopLeftY.Enter += new System.EventHandler(this.numericUpDownTopLeftY_Enter);
+            this.numericUpDownTopLeftY.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownTopRightX
             // 
@@ -112,7 +112,7 @@
             this.numericUpDownTopRightX.TabIndex = 2;
             this.numericUpDownTopRightX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopRightX.ValueChanged += new System.EventHandler(this.numericUpDownTopRight_ValueChanged);
-            this.numericUpDownTopRightX.Enter += new System.EventHandler(this.numericUpDownTopRightX_Enter);
+            this.numericUpDownTopRightX.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownTopRightY
             // 
@@ -128,7 +128,7 @@
             this.numericUpDownTopRightY.TabIndex = 3;
             this.numericUpDownTopRightY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopRightY.ValueChanged += new System.EventHandler(this.numericUpDownTopRight_ValueChanged);
-            this.numericUpDownTopRightY.Enter += new System.EventHandler(this.numericUpDownTopRightY_Enter);
+            this.numericUpDownTopRightY.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownBottomRightX
             // 
@@ -144,7 +144,7 @@
             this.numericUpDownBottomRightX.TabIndex = 4;
             this.numericUpDownBottomRightX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomRightX.ValueChanged += new System.EventHandler(this.numericUpDownBottomRight_ValueChanged);
-            this.numericUpDownBottomRightX.Enter += new System.EventHandler(this.numericUpDownBottomRightX_Enter);
+            this.numericUpDownBottomRightX.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownBottomRightY
             // 
@@ -160,7 +160,7 @@
             this.numericUpDownBottomRightY.TabIndex = 5;
             this.numericUpDownBottomRightY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomRightY.ValueChanged += new System.EventHandler(this.numericUpDownBottomRight_ValueChanged);
-            this.numericUpDownBottomRightY.Enter += new System.EventHandler(this.numericUpDownBottomRightY_Enter);
+            this.numericUpDownBottomRightY.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownBottomLeftX
             // 
@@ -176,7 +176,7 @@
             this.numericUpDownBottomLeftX.TabIndex = 6;
             this.numericUpDownBottomLeftX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomLeftX.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeft_ValueChanged);
-            this.numericUpDownBottomLeftX.Enter += new System.EventHandler(this.numericUpDownBottomLeftX_Enter);
+            this.numericUpDownBottomLeftX.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDownBottomLeftY
             // 
@@ -192,7 +192,7 @@
             this.numericUpDownBottomLeftY.TabIndex = 7;
             this.numericUpDownBottomLeftY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomLeftY.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeft_ValueChanged);
-            this.numericUpDownBottomLeftY.Enter += new System.EventHandler(this.numericUpDownBottomLeftY_Enter);
+            this.numericUpDownBottomLeftY.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // buttonOK
             // 
@@ -239,7 +239,7 @@
             this.numericUpDown1.TabIndex = 9;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            this.numericUpDown1.Enter += new System.EventHandler(this.numericUpDown1_Enter);
+            this.numericUpDown1.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // numericUpDown2
             // 
@@ -250,7 +250,7 @@
             this.numericUpDown2.TabIndex = 10;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            this.numericUpDown2.Enter += new System.EventHandler(this.numericUpDown2_Enter);
+            this.numericUpDown2.Enter += new System.EventHandler(this.numericUpDown_Enter);
             // 
             // checkBoxAutoDims
             // 
