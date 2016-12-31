@@ -47,8 +47,8 @@ namespace QuadrilateralCorrectionEffect
 
             float divisor = Math.Max(srcImage.Width, srcImage.Height) / 500f;
 
-            uiImgBounds.Width = (int)(srcImage.Width / divisor);
-            uiImgBounds.Height = (int)(srcImage.Height / divisor);
+            uiImgBounds.Width = (int)Math.Round(srcImage.Width / divisor);
+            uiImgBounds.Height = (int)Math.Round(srcImage.Height / divisor);
             uiImgBounds.X = Math.Max(0, (500 - uiImgBounds.Width) / 2);
             uiImgBounds.Y = Math.Max(0, (500 - uiImgBounds.Height) / 2);
         }
