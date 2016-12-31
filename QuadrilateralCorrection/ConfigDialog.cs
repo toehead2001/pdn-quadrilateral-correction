@@ -291,14 +291,14 @@ namespace QuadrilateralCorrectionEffect
             corners.Add(new AForge.IntPoint((int)numericUpDownBottomLeftX.Value, (int)numericUpDownBottomLeftY.Value));
             AForge.Imaging.Filters.QuadrilateralTransformation quadTrans = new AForge.Imaging.Filters.QuadrilateralTransformation();
             quadTrans.SourceQuadrilateral = corners;
-            Bitmap quadTransOutput;
+            Size quadTransOutput;
             try
             {
-                quadTransOutput = quadTrans.Apply(srcImage);
+                quadTransOutput = quadTrans.Apply(srcImage).Size;
             }
             catch
             {
-                quadTransOutput = new Bitmap(1, 1);
+                quadTransOutput = Size.Empty;
             }
             numericUpDown1.Value = Clamp(quadTransOutput.Width, numericUpDown1.Minimum, numericUpDown1.Maximum);
             numericUpDown2.Value = Clamp(quadTransOutput.Height, numericUpDown2.Minimum, numericUpDown2.Maximum);
