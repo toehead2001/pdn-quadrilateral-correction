@@ -123,7 +123,7 @@ namespace QuadControl
 
         protected void OnValueChanged()
         {
-            if (this.ValueChanged != null) this.ValueChanged(this);
+            this.ValueChanged?.Invoke(this);
         }
         #endregion
 
