@@ -45,12 +45,13 @@ namespace QuadrilateralCorrectionEffect
 
             quadControl11.UiImage = srcImage;
 
-            float divisor = Math.Max(srcImage.Width, srcImage.Height) / 500f;
+            float quadBaseSize = this.AutoScaleDimensions.Width / 96f * 500f;
+            float divisor = Math.Max(srcImage.Width, srcImage.Height) / quadBaseSize;
 
             uiImgBounds.Width = (int)Math.Round(srcImage.Width / divisor);
             uiImgBounds.Height = (int)Math.Round(srcImage.Height / divisor);
-            uiImgBounds.X = Math.Max(0, (500 - uiImgBounds.Width) / 2);
-            uiImgBounds.Y = Math.Max(0, (500 - uiImgBounds.Height) / 2);
+            uiImgBounds.X = (int)Math.Max(0, (quadBaseSize - uiImgBounds.Width) / 2f);
+            uiImgBounds.Y = (int)Math.Max(0, (quadBaseSize - uiImgBounds.Height) / 2f);
         }
 
         #region Values-Changed events
