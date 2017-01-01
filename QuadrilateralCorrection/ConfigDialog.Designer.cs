@@ -226,7 +226,8 @@
             this.quadControl11.NubTL = new System.Drawing.Point(0, 0);
             this.quadControl11.NubTR = new System.Drawing.Point(500, 0);
             this.quadControl11.Size = new System.Drawing.Size(502, 502);
-            this.quadControl11.TabIndex = 11;
+            this.quadControl11.TabIndex = 14;
+            this.quadControl11.TabStop = false;
             this.quadControl11.ValueChanged += new QuadControl.QuadControl.ValueChangedEventHandler(this.quadControl11_ValueChanged);
             // 
             // numericUpDown1
