@@ -22,6 +22,9 @@ namespace QuadrilateralCorrectionEffect
             quadControl11.Width = uiImgBounds.Width + 2;
             quadControl11.Height = uiImgBounds.Height + 2;
             quadControl11.Location = new Point(quadControl11.Location.X + uiImgBounds.X, quadControl11.Location.Y + uiImgBounds.Y);
+
+            checkBoxAutoDims.Left = label10.Left;
+            checkBoxCenter.Left = label10.Left;
         }
 
         private void Initializers()
