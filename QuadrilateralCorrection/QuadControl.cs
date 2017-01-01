@@ -84,7 +84,7 @@ namespace QuadControl
         {
             set
             {
-                pictureBox1.BackgroundImage = value;
+                pictureBox1.Image = value;
             }
         }
 
