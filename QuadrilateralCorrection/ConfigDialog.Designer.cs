@@ -218,14 +218,13 @@
             // 
             // quadControl11
             // 
-            //this.quadControl11.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.quadControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.quadControl11.Location = new System.Drawing.Point(12, 12);
             this.quadControl11.Name = "quadControl11";
             this.quadControl11.NubBL = new System.Drawing.Point(0, 500);
             this.quadControl11.NubBR = new System.Drawing.Point(500, 500);
             this.quadControl11.NubTL = new System.Drawing.Point(0, 0);
             this.quadControl11.NubTR = new System.Drawing.Point(500, 0);
-            this.quadControl11.Padding = new System.Windows.Forms.Padding(1);
             this.quadControl11.Size = new System.Drawing.Size(502, 502);
             this.quadControl11.TabIndex = 11;
             this.quadControl11.ValueChanged += new QuadControl.QuadControl.ValueChangedEventHandler(this.quadControl11_ValueChanged);
