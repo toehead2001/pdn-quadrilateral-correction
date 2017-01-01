@@ -27,7 +27,6 @@ namespace QuadControl
 
         #region Variables
         Rectangle uiImgBounds;
-        Bitmap gBmp;// = new Bitmap(500, 500); // fills the entire control surface.
         bool MouseIsDown = false; // True if mouse button is down
         Point MouseFromNub = new Point();
         int Radius = 3; // nb Radius * 2 + 1 = size
@@ -91,8 +90,6 @@ namespace QuadControl
                 float divisor = Math.Max(value.Width, value.Height) / 500f;
                 uiImgBounds.Width = (int)(value.Width / divisor);
                 uiImgBounds.Height = (int)(value.Height / divisor);
-
-                gBmp = new Bitmap(uiImgBounds.Width, uiImgBounds.Height);
             }
         }
 
@@ -127,74 +124,60 @@ namespace QuadControl
         }
         #endregion
 
-        #region Graphics
-        private void DrawGraphics()
-        {
-            // Draw the Quadrilateral and four control Nubs.
-            using (Graphics g = Graphics.FromImage(gBmp))
-            {
-                g.CompositingMode = CompositingMode.SourceOver;
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                g.CompositingQuality = CompositingQuality.HighQuality;
-
-                // clear bitmap
-                g.Clear(Color.Transparent);
-
-                // Draw quadrilateral
-                using (Pen outlinePen = new Pen(Color.Black))
-                {
-                    outlinePen.Color = Color.White;
-                    outlinePen.DashStyle = DashStyle.Dash;
-                    g.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
-                    g.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
-                    g.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
-                    g.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
-
-                    outlinePen.Color = Color.Black;
-                    outlinePen.DashStyle = DashStyle.Dot;
-                    g.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
-                    g.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
-                    g.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
-                    g.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
-                }
-
-                // Draw Nubs
-                using (Pen nubPen = new Pen(Color.White, 4))
-                using (Pen nubStatePen = new Pen(Color.Black, 1.6f))
-                {
-                    // Top Left control nub
-                    Radius = (nubTL.Hovered || nubTL.Selected) ? 5 : 3;
-                    g.DrawEllipse(nubPen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
-                    nubStatePen.Color = (nubTL.Selected) ? Color.DodgerBlue : Color.Black;
-                    g.DrawEllipse(nubStatePen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
-
-                    // Top Right control nub
-                    Radius = (nubTR.Hovered || nubTR.Selected) ? 5 : 3;
-                    g.DrawEllipse(nubPen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
-                    nubStatePen.Color = (nubTR.Selected) ? Color.DodgerBlue : Color.Black;
-                    g.DrawEllipse(nubStatePen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
-
-                    // Bottom Right control nub
-                    Radius = (nubBR.Hovered || nubBR.Selected) ? 5 : 3;
-                    g.DrawEllipse(nubPen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
-                    nubStatePen.Color = (nubBR.Selected) ? Color.DodgerBlue : Color.Black;
-                    g.DrawEllipse(nubStatePen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
-
-                    // Bottom Left control nub
-                    Radius = (nubBL.Hovered || nubBL.Selected) ? 5 : 3;
-                    g.DrawEllipse(nubPen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
-                    nubStatePen.Color = (nubBL.Selected) ? Color.DodgerBlue : Color.Black;
-                    g.DrawEllipse(nubStatePen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
-                }
-            }
-        }
-
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            DrawGraphics();
-            e.Graphics.DrawImage(gBmp, 0, 0);
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.CompositingQuality = CompositingQuality.HighQuality;
+
+            // Draw quadrilateral
+            using (Pen outlinePen = new Pen(Color.Black))
+            {
+                outlinePen.Color = Color.White;
+                outlinePen.DashStyle = DashStyle.Dash;
+                g.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
+                g.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
+                g.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
+                g.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
+
+                outlinePen.Color = Color.Black;
+                outlinePen.DashStyle = DashStyle.Dot;
+                g.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
+                g.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
+                g.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
+                g.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
+            }
+
+            // Draw Nubs
+            using (Pen nubPen = new Pen(Color.White, 4))
+            using (Pen nubStatePen = new Pen(Color.Black, 1.6f))
+            {
+                // Top Left control nub
+                Radius = (nubTL.Hovered || nubTL.Selected) ? 5 : 3;
+                g.DrawEllipse(nubPen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                nubStatePen.Color = (nubTL.Selected) ? Color.DodgerBlue : Color.Black;
+                g.DrawEllipse(nubStatePen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+
+                // Top Right control nub
+                Radius = (nubTR.Hovered || nubTR.Selected) ? 5 : 3;
+                g.DrawEllipse(nubPen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                nubStatePen.Color = (nubTR.Selected) ? Color.DodgerBlue : Color.Black;
+                g.DrawEllipse(nubStatePen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+
+                // Bottom Right control nub
+                Radius = (nubBR.Hovered || nubBR.Selected) ? 5 : 3;
+                g.DrawEllipse(nubPen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                nubStatePen.Color = (nubBR.Selected) ? Color.DodgerBlue : Color.Black;
+                g.DrawEllipse(nubStatePen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+
+                // Bottom Left control nub
+                Radius = (nubBL.Hovered || nubBL.Selected) ? 5 : 3;
+                g.DrawEllipse(nubPen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                nubStatePen.Color = (nubBL.Selected) ? Color.DodgerBlue : Color.Black;
+                g.DrawEllipse(nubStatePen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+            }
         }
-        #endregion
 
         #region Mouse events
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
