@@ -26,7 +26,6 @@ namespace QuadControl
         }
 
         #region Variables
-        Rectangle uiImgBounds;
         bool MouseIsDown = false; // True if mouse button is down
         Point MouseFromNub = new Point();
         int Radius = 3; // nb Radius * 2 + 1 = size
@@ -86,10 +85,6 @@ namespace QuadControl
             set
             {
                 pictureBox1.BackgroundImage = value;
-
-                float divisor = Math.Max(value.Width, value.Height) / 500f;
-                uiImgBounds.Width = (int)(value.Width / divisor);
-                uiImgBounds.Height = (int)(value.Height / divisor);
             }
         }
 
@@ -484,13 +479,13 @@ namespace QuadControl
         #region Utility routines
         private int ClipWidth(int x)
         {
-            int y = (x < 0) ? 0 : (x > uiImgBounds.Width - 1) ? uiImgBounds.Width - 1 : x;
+            int y = (x < 0) ? 0 : (x > pictureBox1.Width - 1) ? pictureBox1.Width - 1 : x;
             return y;
         }
 
         private int ClipHeight(int x)
         {
-            int y = (x < 0) ? 0 : (x > uiImgBounds.Height - 1) ? uiImgBounds.Height - 1 : x;
+            int y = (x < 0) ? 0 : (x > pictureBox1.Height - 1) ? pictureBox1.Height - 1 : x;
             return y;
         }
         #endregion
