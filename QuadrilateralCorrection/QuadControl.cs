@@ -8,7 +8,7 @@ namespace QuadControl
 {
     internal partial class QuadControl : UserControl
     {
-        internal QuadControl()
+        public QuadControl()
         {
             InitializeComponent();
         }
