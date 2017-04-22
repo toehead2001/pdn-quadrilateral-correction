@@ -262,19 +262,19 @@ namespace QuadControl
                 if (e.Button == MouseButtons.Middle)
                 {
                     if (e.X <= nubTL.X - DeadZone)
-                        nubTL.X = ClipWidth(e.X + DeadZone);
+                        nubTL.X = ClampToWidth(e.X + DeadZone);
                     else if (e.X >= nubTL.X + DeadZone)
-                        nubTL.X = ClipWidth(e.X - DeadZone);
+                        nubTL.X = ClampToWidth(e.X - DeadZone);
 
                     if (e.Y <= nubTL.Y - DeadZone)
-                        nubTL.Y = ClipHeight(e.Y + DeadZone);
+                        nubTL.Y = ClampToHeight(e.Y + DeadZone);
                     else if (e.Y >= nubTL.Y + DeadZone)
-                        nubTL.Y = ClipHeight(e.Y - DeadZone);
+                        nubTL.Y = ClampToHeight(e.Y - DeadZone);
                 }
                 else
                 {
-                    nubTL.X = ClipWidth(e.X - MouseFromNub.X);
-                    nubTL.Y = ClipHeight(e.Y - MouseFromNub.Y);
+                    nubTL.X = ClampToWidth(e.X - MouseFromNub.X);
+                    nubTL.Y = ClampToHeight(e.Y - MouseFromNub.Y);
                 }
             }
             else if (nubTR.Grabbed)
@@ -282,19 +282,19 @@ namespace QuadControl
                 if (e.Button == MouseButtons.Middle)
                 {
                     if (e.X <= nubTR.X - DeadZone)
-                        nubTR.X = ClipWidth(e.X + DeadZone);
+                        nubTR.X = ClampToWidth(e.X + DeadZone);
                     else if (e.X >= nubTR.X + DeadZone)
-                        nubTR.X = ClipWidth(e.X - DeadZone);
+                        nubTR.X = ClampToWidth(e.X - DeadZone);
 
                     if (e.Y <= nubTR.Y - DeadZone)
-                        nubTR.Y = ClipHeight(e.Y + DeadZone);
+                        nubTR.Y = ClampToHeight(e.Y + DeadZone);
                     else if (e.Y >= nubTR.Y + DeadZone)
-                        nubTR.Y = ClipHeight(e.Y - DeadZone);
+                        nubTR.Y = ClampToHeight(e.Y - DeadZone);
                 }
                 else
                 {
-                    nubTR.X = ClipWidth(e.X - MouseFromNub.X);
-                    nubTR.Y = ClipHeight(e.Y - MouseFromNub.Y);
+                    nubTR.X = ClampToWidth(e.X - MouseFromNub.X);
+                    nubTR.Y = ClampToHeight(e.Y - MouseFromNub.Y);
                 }
             }
             else if (nubBR.Grabbed)
@@ -302,19 +302,19 @@ namespace QuadControl
                 if (e.Button == MouseButtons.Middle)
                 {
                     if (e.X <= nubBR.X - DeadZone)
-                        nubBR.X = ClipWidth(e.X + DeadZone);
+                        nubBR.X = ClampToWidth(e.X + DeadZone);
                     else if (e.X >= nubBR.X + DeadZone)
-                        nubBR.X = ClipWidth(e.X - DeadZone);
+                        nubBR.X = ClampToWidth(e.X - DeadZone);
 
                     if (e.Y <= nubBR.Y - DeadZone)
-                        nubBR.Y = ClipHeight(e.Y + DeadZone);
+                        nubBR.Y = ClampToHeight(e.Y + DeadZone);
                     else if (e.Y >= nubBR.Y + DeadZone)
-                        nubBR.Y = ClipHeight(e.Y - DeadZone);
+                        nubBR.Y = ClampToHeight(e.Y - DeadZone);
                 }
                 else
                 {
-                    nubBR.X = ClipWidth(e.X - MouseFromNub.X);
-                    nubBR.Y = ClipHeight(e.Y - MouseFromNub.Y);
+                    nubBR.X = ClampToWidth(e.X - MouseFromNub.X);
+                    nubBR.Y = ClampToHeight(e.Y - MouseFromNub.Y);
                 }
             }
             else if (nubBL.Grabbed)
@@ -322,19 +322,19 @@ namespace QuadControl
                 if (e.Button == MouseButtons.Middle)
                 {
                     if (e.X <= nubBL.X - DeadZone)
-                        nubBL.X = ClipWidth(e.X + DeadZone);
+                        nubBL.X = ClampToWidth(e.X + DeadZone);
                     else if (e.X >= nubBL.X + DeadZone)
-                        nubBL.X = ClipWidth(e.X - DeadZone);
+                        nubBL.X = ClampToWidth(e.X - DeadZone);
 
                     if (e.Y <= nubBL.Y - DeadZone)
-                        nubBL.Y = ClipHeight(e.Y + DeadZone);
+                        nubBL.Y = ClampToHeight(e.Y + DeadZone);
                     else if (e.Y >= nubBL.Y + DeadZone)
-                        nubBL.Y = ClipHeight(e.Y - DeadZone);
+                        nubBL.Y = ClampToHeight(e.Y - DeadZone);
                 }
                 else
                 {
-                    nubBL.X = ClipWidth(e.X - MouseFromNub.X);
-                    nubBL.Y = ClipHeight(e.Y - MouseFromNub.Y);
+                    nubBL.X = ClampToWidth(e.X - MouseFromNub.X);
+                    nubBL.Y = ClampToHeight(e.Y - MouseFromNub.Y);
                 }
             }
             this.Refresh();
@@ -466,13 +466,13 @@ namespace QuadControl
         #endregion
 
         #region Utility routines
-        private int ClipWidth(int x)
+        private int ClampToWidth(int x)
         {
             int y = (x < 0) ? 0 : (x > this.ClientSize.Width - 1) ? this.ClientSize.Width - 1 : x;
             return y;
         }
 
-        private int ClipHeight(int x)
+        private int ClampToHeight(int x)
         {
             int y = (x < 0) ? 0 : (x > this.ClientSize.Height - 1) ? this.ClientSize.Height - 1 : x;
             return y;
