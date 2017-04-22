@@ -36,7 +36,7 @@ namespace QuadControl
         // four publicly accessible get/sets which map the internal location variables
         public Point NubTL
         {
-            get { return nubTL.Location; }
+            get => nubTL.Location;
             set
             {
                 nubTL.Location = value;
@@ -46,7 +46,7 @@ namespace QuadControl
         }
         public Point NubTR
         {
-            get { return nubTR.Location; }
+            get => nubTR.Location;
             set
             {
                 nubTR.Location = value;
@@ -56,7 +56,7 @@ namespace QuadControl
         }
         public Point NubBR
         {
-            get { return nubBR.Location; }
+            get => nubBR.Location;
             set
             {
                 nubBR.Location = value;
@@ -66,7 +66,7 @@ namespace QuadControl
         }
         public Point NubBL
         {
-            get { return nubBL.Location; }
+            get => nubBL.Location;
             set
             {
                 nubBL.Location = value;
@@ -484,36 +484,18 @@ namespace QuadControl
             private Point location;
             internal Point Location
             {
-                get
-                {
-                    return location;
-                }
-                set
-                {
-                    location = value;
-                }
+                get => location;
+                set => location = value;
             }
             internal int X
             {
-                get
-                {
-                    return location.X;
-                }
-                set
-                {
-                    location.X = value;
-                }
+                get => location.X;
+                set => location.X = value;
             }
             internal int Y
             {
-                get
-                {
-                    return location.Y;
-                }
-                set
-                {
-                    location.Y = value;
-                }
+                get => location.Y;
+                set => location.Y = value;
             }
             internal bool Grabbed { get; set; }
             internal bool Hovered { get; set; }
