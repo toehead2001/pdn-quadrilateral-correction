@@ -46,7 +46,7 @@ namespace QuadrilateralCorrectionEffect
 
             srcImage = EffectSourceSurface.CreateAliasedBitmap(selection);
 
-            quadControl11.UiImage = srcImage;
+            quadControl11.Image = srcImage;
 
             float quadBaseSize = this.AutoScaleDimensions.Width / 96f * 500f;
             float divisor = Math.Max(srcImage.Width, srcImage.Height) / quadBaseSize;

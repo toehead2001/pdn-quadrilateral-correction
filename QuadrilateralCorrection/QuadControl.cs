@@ -6,23 +6,18 @@ using System.Windows.Forms;
 
 namespace QuadControl
 {
-    internal partial class QuadControl : UserControl
+    internal class QuadControl : PictureBox
     {
         public QuadControl()
         {
-            InitializeComponent();
-        }
+            this.BackgroundImage = global::QuadrilateralCorrectionEffect.Resources.CheckerBoard;
+            //this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TabStop = false;
 
-        private void QuadControl1_Load(object sender, EventArgs e)
-        {
             using (var memoryStream = new MemoryStream(QuadrilateralCorrectionEffect.Resources.HandOpen))
-            {
                 handOpen = new Cursor(memoryStream);
-            }
             using (var memoryStream = new MemoryStream(QuadrilateralCorrectionEffect.Resources.HandGrab))
-            {
                 handGrab = new Cursor(memoryStream);
-            }
         }
 
         #region Variables
@@ -46,7 +41,7 @@ namespace QuadControl
             {
                 nubTL.Location = value;
                 OnValueChanged();
-                pictureBox1.Refresh();
+                this.Refresh();
             }
         }
         public Point NubTR
@@ -56,7 +51,7 @@ namespace QuadControl
             {
                 nubTR.Location = value;
                 OnValueChanged();
-                pictureBox1.Refresh();
+                this.Refresh();
             }
         }
         public Point NubBR
@@ -66,7 +61,7 @@ namespace QuadControl
             {
                 nubBR.Location = value;
                 OnValueChanged();
-                pictureBox1.Refresh();
+                this.Refresh();
             }
         }
         public Point NubBL
@@ -76,15 +71,7 @@ namespace QuadControl
             {
                 nubBL.Location = value;
                 OnValueChanged();
-                pictureBox1.Refresh();
-            }
-        }
-
-        public Bitmap UiImage
-        {
-            set
-            {
-                pictureBox1.Image = value;
+                this.Refresh();
             }
         }
 
@@ -119,29 +106,29 @@ namespace QuadControl
         }
         #endregion
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs pe)
         {
-            Graphics g = e.Graphics;
+            base.OnPaint(pe);
 
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.CompositingQuality = CompositingQuality.HighQuality;
+            pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            pe.Graphics.CompositingQuality = CompositingQuality.HighQuality;
 
             // Draw quadrilateral
             using (Pen outlinePen = new Pen(Color.Black))
             {
                 outlinePen.Color = Color.White;
                 outlinePen.DashStyle = DashStyle.Dash;
-                g.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
-                g.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
-                g.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
-                g.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
+                pe.Graphics.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
+                pe.Graphics.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
+                pe.Graphics.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
+                pe.Graphics.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
 
                 outlinePen.Color = Color.Black;
                 outlinePen.DashStyle = DashStyle.Dot;
-                g.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
-                g.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
-                g.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
-                g.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
+                pe.Graphics.DrawLine(outlinePen, nubTL.Location, nubTR.Location);
+                pe.Graphics.DrawLine(outlinePen, nubTR.Location, nubBR.Location);
+                pe.Graphics.DrawLine(outlinePen, nubBR.Location, nubBL.Location);
+                pe.Graphics.DrawLine(outlinePen, nubBL.Location, nubTL.Location);
             }
 
             // Draw Nubs
@@ -150,32 +137,32 @@ namespace QuadControl
             {
                 // Top Left control nub
                 Radius = (nubTL.Hovered || nubTL.Selected) ? 5 : 3;
-                g.DrawEllipse(nubPen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubPen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
                 nubStatePen.Color = (nubTL.Selected) ? Color.DodgerBlue : Color.Black;
-                g.DrawEllipse(nubStatePen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
 
                 // Top Right control nub
                 Radius = (nubTR.Hovered || nubTR.Selected) ? 5 : 3;
-                g.DrawEllipse(nubPen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubPen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
                 nubStatePen.Color = (nubTR.Selected) ? Color.DodgerBlue : Color.Black;
-                g.DrawEllipse(nubStatePen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
 
                 // Bottom Right control nub
                 Radius = (nubBR.Hovered || nubBR.Selected) ? 5 : 3;
-                g.DrawEllipse(nubPen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubPen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
                 nubStatePen.Color = (nubBR.Selected) ? Color.DodgerBlue : Color.Black;
-                g.DrawEllipse(nubStatePen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
 
                 // Bottom Left control nub
                 Radius = (nubBL.Hovered || nubBL.Selected) ? 5 : 3;
-                g.DrawEllipse(nubPen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubPen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
                 nubStatePen.Color = (nubBL.Selected) ? Color.DodgerBlue : Color.Black;
-                g.DrawEllipse(nubStatePen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
             }
         }
 
         #region Mouse events
-        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+        protected override void OnMouseDown(MouseEventArgs e)
         {
             MouseIsDown = true; // because the mouse button is down
             //MouseDownStart = e.Location; // has the location of the mouse pointer when the button is pressed
@@ -200,7 +187,7 @@ namespace QuadControl
                 }
                 else
                 {
-                    GrabNub(nubTR , e.Location);
+                    GrabNub(nubTR, e.Location);
                 }
             }
             else if (NearNub(e.Location, nubBR))
@@ -226,10 +213,12 @@ namespace QuadControl
                 }
             }
 
-            pictureBox1.Refresh();
+            this.Refresh();
+
+            base.OnMouseDown(e);
         }
 
-        private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
+        protected override void OnMouseUp(MouseEventArgs e)
         {
             nubTL.Grabbed = false;
             nubTR.Grabbed = false;
@@ -237,11 +226,13 @@ namespace QuadControl
             nubBL.Grabbed = false;
             MouseIsDown = false;
 
-            pictureBox1.Refresh();
+            this.Refresh();
             OnValueChanged();
+
+            base.OnMouseUp(e);
         }
 
-        private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
             if (!MouseIsDown)
             {
@@ -265,13 +256,8 @@ namespace QuadControl
                 {
                     UnHoverNubs();
                 }
-
-                pictureBox1.Refresh();
-                return;
             }
-
-
-            if (nubTL.Grabbed)
+            else if (nubTL.Grabbed)
             {
                 if (e.Button == MouseButtons.Middle)
                 {
@@ -351,8 +337,11 @@ namespace QuadControl
                     nubBL.Y = ClipHeight(e.Y - MouseFromNub.Y);
                 }
             }
-            pictureBox1.Refresh();
-            OnValueChanged();
+            this.Refresh();
+            if (MouseIsDown)
+                OnValueChanged();
+
+            base.OnMouseMove(e);
         }
         #endregion
 
@@ -479,13 +468,13 @@ namespace QuadControl
         #region Utility routines
         private int ClipWidth(int x)
         {
-            int y = (x < 0) ? 0 : (x > pictureBox1.Width - 1) ? pictureBox1.Width - 1 : x;
+            int y = (x < 0) ? 0 : (x > this.ClientSize.Width - 1) ? this.ClientSize.Width - 1 : x;
             return y;
         }
 
         private int ClipHeight(int x)
         {
-            int y = (x < 0) ? 0 : (x > pictureBox1.Height - 1) ? pictureBox1.Height - 1 : x;
+            int y = (x < 0) ? 0 : (x > this.ClientSize.Height - 1) ? this.ClientSize.Height - 1 : x;
             return y;
         }
         #endregion
