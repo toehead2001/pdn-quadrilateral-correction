@@ -270,10 +270,7 @@ namespace QuadrilateralCorrectionEffect
         private void QuadrilateralCorrectionConfigDialog_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (quadControl11.SelectedNub == 0)
-            {
-                e.Handled = false;
                 return;
-            }
 
             e.Handled = true;
 
