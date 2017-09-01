@@ -25,10 +25,12 @@ namespace QuadControl
         #region Variables
         bool MouseIsDown = false; // True if mouse button is down
         Point MouseFromNub = new Point();
-        int Radius = 3; // nb Radius * 2 + 1 = size
+        const int RadiusSmall = 3; // nb Radius * 2 + 1 = size
+        const int RadiusLarge = 5;
+        const int RadiusHover = 13;
+        const int DeadZone = 30;
         Cursor handOpen;
         Cursor handGrab;
-        const int DeadZone = 30;
         Nub nubTL, nubTR, nubBR, nubBL; // four Nubs to store coordinates and activation states
         #endregion
 
@@ -138,29 +140,31 @@ namespace QuadControl
             using (Pen nubPen = new Pen(Color.White, 4))
             using (Pen nubStatePen = new Pen(Color.Black, 1.6f))
             {
+                int radius;
+
                 // Top Left control nub
-                Radius = (nubTL.Hovered || nubTL.Selected) ? 5 : 3;
-                pe.Graphics.DrawEllipse(nubPen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                radius = (nubTL.Hovered || nubTL.Selected) ? RadiusLarge : RadiusSmall;
+                pe.Graphics.DrawEllipse(nubPen, nubTL.X - radius, nubTL.Y - radius, radius * 2 + 1, radius * 2 + 1);
                 nubStatePen.Color = (nubTL.Selected) ? Color.DodgerBlue : Color.Black;
-                pe.Graphics.DrawEllipse(nubStatePen, nubTL.X - Radius, nubTL.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubTL.X - radius, nubTL.Y - radius, radius * 2 + 1, radius * 2 + 1);
 
                 // Top Right control nub
-                Radius = (nubTR.Hovered || nubTR.Selected) ? 5 : 3;
-                pe.Graphics.DrawEllipse(nubPen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                radius = (nubTR.Hovered || nubTR.Selected) ? RadiusLarge : RadiusSmall;
+                pe.Graphics.DrawEllipse(nubPen, nubTR.X - radius - 1, nubTR.Y - radius, radius * 2 + 1, radius * 2 + 1);
                 nubStatePen.Color = (nubTR.Selected) ? Color.DodgerBlue : Color.Black;
-                pe.Graphics.DrawEllipse(nubStatePen, nubTR.X - Radius - 1, nubTR.Y - Radius, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubTR.X - radius - 1, nubTR.Y - radius, radius * 2 + 1, radius * 2 + 1);
 
                 // Bottom Right control nub
-                Radius = (nubBR.Hovered || nubBR.Selected) ? 5 : 3;
-                pe.Graphics.DrawEllipse(nubPen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                radius = (nubBR.Hovered || nubBR.Selected) ? RadiusLarge : RadiusSmall;
+                pe.Graphics.DrawEllipse(nubPen, nubBR.X - radius - 1, nubBR.Y - radius - 1, radius * 2 + 1, radius * 2 + 1);
                 nubStatePen.Color = (nubBR.Selected) ? Color.DodgerBlue : Color.Black;
-                pe.Graphics.DrawEllipse(nubStatePen, nubBR.X - Radius - 1, nubBR.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubBR.X - radius - 1, nubBR.Y - radius - 1, radius * 2 + 1, radius * 2 + 1);
 
                 // Bottom Left control nub
-                Radius = (nubBL.Hovered || nubBL.Selected) ? 5 : 3;
-                pe.Graphics.DrawEllipse(nubPen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                radius = (nubBL.Hovered || nubBL.Selected) ? RadiusLarge : RadiusSmall;
+                pe.Graphics.DrawEllipse(nubPen, nubBL.X - radius, nubBL.Y - radius - 1, radius * 2 + 1, radius * 2 + 1);
                 nubStatePen.Color = (nubBL.Selected) ? Color.DodgerBlue : Color.Black;
-                pe.Graphics.DrawEllipse(nubStatePen, nubBL.X - Radius, nubBL.Y - Radius - 1, Radius * 2 + 1, Radius * 2 + 1);
+                pe.Graphics.DrawEllipse(nubStatePen, nubBL.X - radius, nubBL.Y - radius - 1, radius * 2 + 1, radius * 2 + 1);
             }
         }
 
@@ -464,7 +468,7 @@ namespace QuadControl
 
         private bool NearNub(Point mouseLocation, Nub nub)
         {
-            return ((Math.Abs(mouseLocation.X - nub.X) <= Radius + 10) && (Math.Abs(mouseLocation.Y - nub.Y) <= Radius + 10));
+            return ((Math.Abs(mouseLocation.X - nub.X) <= RadiusHover) && (Math.Abs(mouseLocation.Y - nub.Y) <= RadiusHover));
         }
         #endregion
 
