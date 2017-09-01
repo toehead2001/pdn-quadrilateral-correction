@@ -43,7 +43,6 @@ namespace QuadrilateralCorrectionEffect
             autoDims = newToken.AutoDims;
             width = newToken.Width;
             height = newToken.Height;
-            //scale = newToken.Scale;
             center = newToken.Center;
 
             // define quadrilateral's corners
@@ -116,7 +115,6 @@ namespace QuadrilateralCorrectionEffect
         bool autoDims;
         int width;
         int height;
-        //float scale;
         bool center;
 
         Surface quadrilateralSurface;
