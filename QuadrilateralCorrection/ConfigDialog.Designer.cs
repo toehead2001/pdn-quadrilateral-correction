@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuadrilateralCorrectionConfigDialog));
             this.numericUpDownTopLeftX = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTopLeftY = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTopRightX = new System.Windows.Forms.NumericUpDown();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomRightY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomLeftX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomLeftY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quadControl11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -218,7 +220,7 @@
             // 
             // quadControl11
             // 
-            this.quadControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.quadControl11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("quadControl11.BackgroundImage")));
             this.quadControl11.Location = new System.Drawing.Point(12, 12);
             this.quadControl11.Name = "quadControl11";
             this.quadControl11.NubBL = new System.Drawing.Point(0, 500);
@@ -226,6 +228,7 @@
             this.quadControl11.NubTL = new System.Drawing.Point(0, 0);
             this.quadControl11.NubTR = new System.Drawing.Point(500, 0);
             this.quadControl11.Size = new System.Drawing.Size(502, 502);
+            this.quadControl11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.quadControl11.TabIndex = 14;
             this.quadControl11.TabStop = false;
             this.quadControl11.ValueChanged += new QuadControl.QuadControl.ValueChangedEventHandler(this.quadControl11_ValueChanged);
@@ -422,7 +425,6 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HelpButton = true;
             this.KeyPreview = true;
-            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "QuadrilateralCorrectionConfigDialog";
             this.Text = "Quadrilateral Correction";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.QuadrilateralCorrectionConfigDialog_HelpButtonClicked);
@@ -436,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomRightY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomLeftX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomLeftY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quadControl11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);

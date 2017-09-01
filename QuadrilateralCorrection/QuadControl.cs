@@ -10,9 +10,10 @@ namespace QuadControl
     {
         public QuadControl()
         {
-            this.BackgroundImage = global::QuadrilateralCorrectionEffect.Resources.CheckerBoard;
-            //this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BackgroundImage = QuadrilateralCorrectionEffect.Resources.CheckerBoard;
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
             this.TabStop = false;
+            this.BorderStyle = BorderStyle.FixedSingle;
 
             using (var memoryStream = new MemoryStream(QuadrilateralCorrectionEffect.Resources.HandOpen))
                 handOpen = new Cursor(memoryStream);
