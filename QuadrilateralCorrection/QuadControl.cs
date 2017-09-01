@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace QuadControl
 {
+    [DefaultEvent("ValueChanged")]
     internal class QuadControl : PictureBox
     {
         public QuadControl()
