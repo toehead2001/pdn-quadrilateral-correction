@@ -1,6 +1,8 @@
 ﻿using PaintDotNet.Effects;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace QuadrilateralCorrectionEffect
 {
@@ -62,10 +64,11 @@ namespace QuadrilateralCorrectionEffect
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
-            Point topLeft = new Point();
-            topLeft.X = (int)Math.Round(numericUpDownTopLeftX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            topLeft.Y = (int)Math.Round(numericUpDownTopLeftY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubTL = topLeft;
+            quadControl11.NubTL = new Point
+            {
+                X = (int)Math.Round(numericUpDownTopLeftX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1)),
+                Y = (int)Math.Round(numericUpDownTopLeftY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1))
+            };
 
             quadControl11.ValueChanged += quadControl11_ValueChanged;
 
@@ -76,10 +79,11 @@ namespace QuadrilateralCorrectionEffect
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
-            Point topright = new Point();
-            topright.X = (int)Math.Round(numericUpDownTopRightX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            topright.Y = (int)Math.Round(numericUpDownTopRightY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubTR = topright;
+            quadControl11.NubTR = new Point
+            {
+                X = (int)Math.Round(numericUpDownTopRightX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1)),
+                Y = (int)Math.Round(numericUpDownTopRightY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1))
+            };
 
             quadControl11.ValueChanged += quadControl11_ValueChanged;
 
@@ -90,10 +94,11 @@ namespace QuadrilateralCorrectionEffect
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
-            Point bottomRight = new Point();
-            bottomRight.X = (int)Math.Round(numericUpDownBottomRightX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            bottomRight.Y = (int)Math.Round(numericUpDownBottomRightY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubBR = bottomRight;
+            quadControl11.NubBR = new Point
+            {
+                X = (int)Math.Round(numericUpDownBottomRightX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1)),
+                Y = (int)Math.Round(numericUpDownBottomRightY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1))
+            };
 
             quadControl11.ValueChanged += quadControl11_ValueChanged;
 
@@ -104,10 +109,11 @@ namespace QuadrilateralCorrectionEffect
         {
             quadControl11.ValueChanged -= quadControl11_ValueChanged;
 
-            Point bottomLeft = new Point();
-            bottomLeft.X = (int)Math.Round(numericUpDownBottomLeftX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1));
-            bottomLeft.Y = (int)Math.Round(numericUpDownBottomLeftY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1));
-            quadControl11.NubBL = bottomLeft;
+            quadControl11.NubBL = new Point
+            {
+                X = (int)Math.Round(numericUpDownBottomLeftX.Value * (uiImgBounds.Width - 1) / (selection.Width - 1)),
+                Y = (int)Math.Round(numericUpDownBottomLeftY.Value * (uiImgBounds.Height - 1) / (selection.Height - 1))
+            };
 
             quadControl11.ValueChanged += quadControl11_ValueChanged;
 
@@ -191,7 +197,7 @@ namespace QuadrilateralCorrectionEffect
 
         private void numericUpDown_Enter(object sender, EventArgs e)
         {
-            (sender as System.Windows.Forms.NumericUpDown).Select(0, (sender as System.Windows.Forms.NumericUpDown).Text.Length);
+            (sender as NumericUpDown).Select(0, (sender as NumericUpDown).Text.Length);
         }
 
         #region Token Stuff
@@ -245,13 +251,17 @@ namespace QuadrilateralCorrectionEffect
 
         private void SetDimensionValues()
         {
-            System.Collections.Generic.List<AForge.IntPoint> corners = new System.Collections.Generic.List<AForge.IntPoint>();
-            corners.Add(new AForge.IntPoint((int)numericUpDownTopLeftX.Value, (int)numericUpDownTopLeftY.Value));
-            corners.Add(new AForge.IntPoint((int)numericUpDownTopRightX.Value, (int)numericUpDownTopRightY.Value));
-            corners.Add(new AForge.IntPoint((int)numericUpDownBottomRightX.Value, (int)numericUpDownBottomRightY.Value));
-            corners.Add(new AForge.IntPoint((int)numericUpDownBottomLeftX.Value, (int)numericUpDownBottomLeftY.Value));
-            AForge.Imaging.Filters.QuadrilateralTransformation quadTrans = new AForge.Imaging.Filters.QuadrilateralTransformation();
-            quadTrans.SourceQuadrilateral = corners;
+            AForge.Imaging.Filters.QuadrilateralTransformation quadTrans = new AForge.Imaging.Filters.QuadrilateralTransformation
+            {
+                SourceQuadrilateral = new List<AForge.IntPoint>
+                {
+                    new AForge.IntPoint((int)numericUpDownTopLeftX.Value, (int)numericUpDownTopLeftY.Value),
+                    new AForge.IntPoint((int)numericUpDownTopRightX.Value, (int)numericUpDownTopRightY.Value),
+                    new AForge.IntPoint((int)numericUpDownBottomRightX.Value, (int)numericUpDownBottomRightY.Value),
+                    new AForge.IntPoint((int)numericUpDownBottomLeftX.Value, (int)numericUpDownBottomLeftY.Value)
+                }
+            };
+
             Size quadTransOutput;
             try
             {
@@ -267,7 +277,7 @@ namespace QuadrilateralCorrectionEffect
             numericUpDown2.Text = numericUpDown2.Value.ToString();
         }
 
-        private void QuadrilateralCorrectionConfigDialog_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void QuadrilateralCorrectionConfigDialog_KeyDown(object sender, KeyEventArgs e)
         {
             if (quadControl11.SelectedNub == 0)
                 return;
@@ -277,30 +287,30 @@ namespace QuadrilateralCorrectionEffect
             int horAmount = 0;
             int verAmount = 0;
 
-            if (e.KeyCode == System.Windows.Forms.Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
-                if (e.Modifiers == System.Windows.Forms.Keys.Control)
+                if (e.Modifiers == Keys.Control)
                     verAmount = -5;
                 else
                     verAmount = -1;
             }
-            else if ((e.KeyCode == System.Windows.Forms.Keys.Right))
+            else if ((e.KeyCode == Keys.Right))
             {
-                if (e.Modifiers == System.Windows.Forms.Keys.Control)
+                if (e.Modifiers == Keys.Control)
                     horAmount = 5;
                 else
                     horAmount = 1;
             }
-            else if ((e.KeyCode == System.Windows.Forms.Keys.Down))
+            else if ((e.KeyCode == Keys.Down))
             {
-                if (e.Modifiers == System.Windows.Forms.Keys.Control)
+                if (e.Modifiers == Keys.Control)
                     verAmount = 5;
                 else
                     verAmount = 1;
             }
-            else if ((e.KeyCode == System.Windows.Forms.Keys.Left))
+            else if ((e.KeyCode == Keys.Left))
             {
-                if (e.Modifiers == System.Windows.Forms.Keys.Control)
+                if (e.Modifiers == Keys.Control)
                     horAmount = -5;
                 else
                     horAmount = -1;
@@ -343,7 +353,7 @@ namespace QuadrilateralCorrectionEffect
             helpMessage += "Right Mouse Button — Select nub for Keyboard Arrow manipulation\n";
             helpMessage += "    Arrow — 1px\n";
             helpMessage += "    Ctrl + Arrow — 5px\n";
-            System.Windows.Forms.MessageBox.Show(helpMessage, "Help");
+            MessageBox.Show(helpMessage, "Help");
         }
     }
 }
