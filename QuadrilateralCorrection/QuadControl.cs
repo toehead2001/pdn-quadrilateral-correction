@@ -477,14 +477,12 @@ namespace QuadControl
         #region Utility routines
         private int ClampToWidth(int x)
         {
-            int y = (x < 0) ? 0 : (x > this.ClientSize.Width - 1) ? this.ClientSize.Width - 1 : x;
-            return y;
+            return (x < 0) ? 0 : (x > this.ClientSize.Width - 1) ? this.ClientSize.Width - 1 : x;
         }
 
-        private int ClampToHeight(int x)
+        private int ClampToHeight(int y)
         {
-            int y = (x < 0) ? 0 : (x > this.ClientSize.Height - 1) ? this.ClientSize.Height - 1 : x;
-            return y;
+            return (y < 0) ? 0 : (y > this.ClientSize.Height - 1) ? this.ClientSize.Height - 1 : y;
         }
         #endregion
 
