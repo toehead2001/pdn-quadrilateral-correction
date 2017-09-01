@@ -24,7 +24,7 @@ namespace QuadControl
 
         #region Variables
         bool MouseIsDown = false; // True if mouse button is down
-        Point MouseFromNub = new Point();
+        Size MouseFromNub = Size.Empty;
         const int RadiusSmall = 3; // nb Radius * 2 + 1 = size
         const int RadiusLarge = 5;
         const int RadiusHover = 13;
@@ -280,8 +280,8 @@ namespace QuadControl
                 }
                 else
                 {
-                    nubTL.X = ClampToWidth(e.X - MouseFromNub.X);
-                    nubTL.Y = ClampToHeight(e.Y - MouseFromNub.Y);
+                    nubTL.X = ClampToWidth(e.X - MouseFromNub.Width);
+                    nubTL.Y = ClampToHeight(e.Y - MouseFromNub.Height);
                 }
             }
             else if (nubTR.Grabbed)
@@ -300,8 +300,8 @@ namespace QuadControl
                 }
                 else
                 {
-                    nubTR.X = ClampToWidth(e.X - MouseFromNub.X);
-                    nubTR.Y = ClampToHeight(e.Y - MouseFromNub.Y);
+                    nubTR.X = ClampToWidth(e.X - MouseFromNub.Width);
+                    nubTR.Y = ClampToHeight(e.Y - MouseFromNub.Height);
                 }
             }
             else if (nubBR.Grabbed)
@@ -320,8 +320,8 @@ namespace QuadControl
                 }
                 else
                 {
-                    nubBR.X = ClampToWidth(e.X - MouseFromNub.X);
-                    nubBR.Y = ClampToHeight(e.Y - MouseFromNub.Y);
+                    nubBR.X = ClampToWidth(e.X - MouseFromNub.Width);
+                    nubBR.Y = ClampToHeight(e.Y - MouseFromNub.Height);
                 }
             }
             else if (nubBL.Grabbed)
@@ -340,8 +340,8 @@ namespace QuadControl
                 }
                 else
                 {
-                    nubBL.X = ClampToWidth(e.X - MouseFromNub.X);
-                    nubBL.Y = ClampToHeight(e.Y - MouseFromNub.Y);
+                    nubBL.X = ClampToWidth(e.X - MouseFromNub.Width);
+                    nubBL.Y = ClampToHeight(e.Y - MouseFromNub.Height);
                 }
             }
             this.Refresh();
@@ -423,8 +423,8 @@ namespace QuadControl
             nubBR.Selected = false;
             nubBL.Selected = false;
 
-            MouseFromNub.X = mouseLocation.X - nub.X;
-            MouseFromNub.Y = mouseLocation.Y - nub.Y;
+            MouseFromNub.Width = mouseLocation.X - nub.X;
+            MouseFromNub.Height = mouseLocation.Y - nub.Y;
 
             this.Cursor = handGrab;
         }
