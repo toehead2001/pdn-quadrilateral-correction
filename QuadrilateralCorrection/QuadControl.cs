@@ -27,7 +27,7 @@ namespace QuadControl
         Size MouseFromNub = Size.Empty;
         const int RadiusSmall = 3; // nb Radius * 2 + 1 = size
         const int RadiusLarge = 5;
-        const int RadiusHover = 13;
+        const int RadiusHover = 16;
         const int DeadZone = 30;
         Cursor handOpen;
         Cursor handGrab;
@@ -466,9 +466,11 @@ namespace QuadControl
             this.Cursor = handOpen;
         }
 
-        private bool NearNub(Point mouseLocation, Nub nub)
+        private static bool NearNub(Point mouseLocation, Nub nub)
         {
-            return ((Math.Abs(mouseLocation.X - nub.X) <= RadiusHover) && (Math.Abs(mouseLocation.Y - nub.Y) <= RadiusHover));
+            int xDist = mouseLocation.X - nub.X;
+            int yDist = mouseLocation.Y - nub.Y;
+            return (Math.Sqrt(xDist * xDist + yDist * yDist) <= RadiusHover);
         }
         #endregion
 
