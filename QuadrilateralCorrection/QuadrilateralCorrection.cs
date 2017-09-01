@@ -45,19 +45,16 @@ namespace QuadrilateralCorrectionEffect
             height = newToken.Height;
             center = newToken.Center;
 
-            // define quadrilateral's corners
-            List<IntPoint> corners = new List<IntPoint>
-            {
-                new IntPoint(topLeft.X, topLeft.Y),
-                new IntPoint(topRight.X, topRight.Y),
-                new IntPoint(bottomRight.X, bottomRight.Y),
-                new IntPoint(bottomLeft.X, bottomLeft.Y)
-            };
-
             // create filter
             QuadrilateralTransformation quadTrans = new QuadrilateralTransformation
             {
-                SourceQuadrilateral = corners,
+                SourceQuadrilateral = new List<IntPoint>
+                {
+                    new IntPoint(topLeft.X, topLeft.Y),
+                    new IntPoint(topRight.X, topRight.Y),
+                    new IntPoint(bottomRight.X, bottomRight.Y),
+                    new IntPoint(bottomLeft.X, bottomLeft.Y)
+                },
                 AutomaticSizeCalculaton = autoDims,
                 NewWidth = width,
                 NewHeight = height
