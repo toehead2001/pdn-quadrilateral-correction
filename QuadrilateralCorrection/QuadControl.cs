@@ -28,12 +28,10 @@ namespace QuadControl
         Cursor handOpen;
         Cursor handGrab;
         const int DeadZone = 30;
+        Nub nubTL, nubTR, nubBR, nubBL; // four Nubs to store coordinates and activation states
         #endregion
 
         #region Properties
-        // four Nubs to store coordinates and activation states
-        Nub nubTL, nubTR, nubBR, nubBL;
-
         // four publicly accessible get/sets which map the internal location variables
         public Point NubTL
         {
@@ -75,8 +73,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
-
-        public byte SelectedNub
+        internal byte SelectedNub
         {
             get
             {
