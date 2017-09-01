@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -33,6 +34,7 @@ namespace QuadControl
 
         #region Properties
         // four publicly accessible get/sets which map the internal location variables
+        [Category("Data")]
         public Point NubTL
         {
             get => nubTL.Location;
@@ -43,6 +45,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+        [Category("Data")]
         public Point NubTR
         {
             get => nubTR.Location;
@@ -53,6 +56,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+        [Category("Data")]
         public Point NubBR
         {
             get => nubBR.Location;
@@ -63,6 +67,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+        [Category("Data")]
         public Point NubBL
         {
             get => nubBL.Location;
