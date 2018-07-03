@@ -33,6 +33,15 @@ namespace QuadrilateralCorrectionEffect
         {
             selection = Selection.GetBoundsInt();
 
+            foreach (Control control in this.Controls)
+            {
+                if (control is NumericUpDown)
+                {
+                    control.ForeColor = this.ForeColor;
+                    control.BackColor = this.BackColor;
+                }
+            }
+
             numericUpDownTopLeftX.Maximum = selection.Width - 1;
             numericUpDownTopLeftY.Maximum = selection.Height - 1;
             numericUpDownTopRightX.Maximum = selection.Width - 1;
