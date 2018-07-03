@@ -22,10 +22,11 @@ namespace QuadrilateralCorrectionEffect
     internal class QuadrilateralCorrectionEffectPlugin : Effect<QuadrilateralCorrectionConfigToken>
     {
         private const string StaticName = "Quadrilateral Correction";
+        private const string StaticMenu = "Tools";
         private static readonly Image StaticIcon = new Bitmap(typeof(QuadrilateralCorrectionEffectPlugin), "Icon.png");
 
         public QuadrilateralCorrectionEffectPlugin()
-            : base(StaticName, StaticIcon, SubmenuNames.Distort, EffectFlags.Configurable)
+            : base(StaticName, StaticIcon, StaticMenu, EffectFlags.Configurable)
         {
         }
 
