@@ -8,9 +8,9 @@ namespace QuadrilateralCorrectionEffect
 {
     internal partial class QuadrilateralCorrectionConfigDialog : EffectConfigDialog<QuadrilateralCorrectionEffectPlugin, QuadrilateralCorrectionConfigToken>
     {
-        Rectangle uiImgBounds;
-        Rectangle selection;
-        Bitmap srcImage;
+        private Rectangle uiImgBounds;
+        private Rectangle selection;
+        private Bitmap srcImage;
 
         public QuadrilateralCorrectionConfigDialog()
         {
@@ -53,7 +53,6 @@ namespace QuadrilateralCorrectionEffect
 
             numericUpDown1.Maximum = selection.Width;
             numericUpDown2.Maximum = selection.Height;
-
 
             srcImage = EffectSourceSurface.CreateAliasedBitmap(selection);
 
@@ -206,7 +205,10 @@ namespace QuadrilateralCorrectionEffect
 
         private void numericUpDown_Enter(object sender, EventArgs e)
         {
-            (sender as NumericUpDown).Select(0, (sender as NumericUpDown).Text.Length);
+            if (sender is NumericUpDown upDown)
+            {
+                upDown.Select(0, upDown.Text.Length);
+            }
         }
 
         #region Token Stuff

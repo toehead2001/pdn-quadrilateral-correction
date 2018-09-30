@@ -24,15 +24,15 @@ namespace QuadControl
         }
 
         #region Variables
-        bool MouseIsDown = false; // True if mouse button is down
-        Size MouseFromNub = Size.Empty;
-        const int RadiusSmall = 3; // nb Radius * 2 + 1 = size
-        const int RadiusLarge = 5;
-        const int RadiusHover = 16;
-        const int DeadZone = 30;
-        Cursor handOpen;
-        Cursor handGrab;
-        Nub nubTL, nubTR, nubBR, nubBL; // four Nubs to store coordinates and activation states
+        private bool MouseIsDown = false; // True if mouse button is down
+        private Size MouseFromNub = Size.Empty;
+        private const int RadiusSmall = 3; // nb Radius * 2 + 1 = size
+        private const int RadiusLarge = 5;
+        private const int RadiusHover = 16;
+        private const int DeadZone = 30;
+        private readonly Cursor handOpen;
+        private readonly Cursor handGrab;
+        private Nub nubTL, nubTR, nubBR, nubBL; // four Nubs to store coordinates and activation states
         #endregion
 
         #region Properties
@@ -48,6 +48,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+
         [Category("Data")]
         public Point NubTR
         {
@@ -59,6 +60,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+
         [Category("Data")]
         public Point NubBR
         {
@@ -70,6 +72,7 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+
         [Category("Data")]
         public Point NubBL
         {
@@ -81,22 +84,21 @@ namespace QuadControl
                 this.Refresh();
             }
         }
+
         internal byte SelectedNub
         {
             get
             {
-                byte nub = 0;
-
                 if (nubTL.Selected)
-                    nub = 1;
+                    return 1;
                 else if (nubTR.Selected)
-                    nub = 2;
+                    return 2;
                 else if (nubBR.Selected)
-                    nub = 3;
+                    return 3;
                 else if (nubBL.Selected)
-                    nub = 4;
+                    return 4;
 
-                return nub;
+                return 0;
             }
         }
         #endregion

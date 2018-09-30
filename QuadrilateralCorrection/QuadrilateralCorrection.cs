@@ -6,6 +6,7 @@ using PaintDotNet;
 using PaintDotNet.Effects;
 using AForge;
 using AForge.Imaging.Filters;
+using Point = System.Drawing.Point;
 
 namespace QuadrilateralCorrectionEffect
 {
@@ -21,12 +22,10 @@ namespace QuadrilateralCorrectionEffect
     [PluginSupportInfo(typeof(PluginSupportInfo), DisplayName = "Quadrilateral Correction")]
     internal class QuadrilateralCorrectionEffectPlugin : Effect<QuadrilateralCorrectionConfigToken>
     {
-        private const string StaticName = "Quadrilateral Correction";
-        private const string StaticMenu = "Tools";
         private static readonly Image StaticIcon = new Bitmap(typeof(QuadrilateralCorrectionEffectPlugin), "Icon.png");
 
         public QuadrilateralCorrectionEffectPlugin()
-            : base(StaticName, StaticIcon, StaticMenu, EffectFlags.Configurable)
+            : base("Quadrilateral Correction", StaticIcon, "Tools", EffectFlags.Configurable)
         {
         }
 
@@ -75,7 +74,7 @@ namespace QuadrilateralCorrectionEffect
                 quadTransOutput = new Bitmap(1, 1);
             }
 
-            System.Drawing.Point offSet = new System.Drawing.Point
+            Point offSet = new Point
             {
                 X = selection.X + (center ? (selection.Width - quadTransOutput.Width) / 2 : 0),
                 Y = selection.Y + (center ? (selection.Height - quadTransOutput.Height) / 2 : 0)
@@ -89,14 +88,15 @@ namespace QuadrilateralCorrectionEffect
             quadTransOutput.Dispose();
 
             if (quadrilateralSurface == null)
+            {
                 quadrilateralSurface = new Surface(srcArgs.Surface.Size);
+            }
 
             quadrilateralSurface = Surface.CopyFromBitmap(alignedImage);
             alignedImage.Dispose();
 
             dstArgs.Surface.Clear(exactSelection, Color.Transparent);
             dstArgs.Surface.CopySurface(quadrilateralSurface, exactSelection);
-
 
             base.OnSetRenderInfo(newToken, dstArgs, srcArgs);
         }
@@ -106,15 +106,15 @@ namespace QuadrilateralCorrectionEffect
             return;
         }
 
-        System.Drawing.Point topLeft;
-        System.Drawing.Point topRight;
-        System.Drawing.Point bottomRight;
-        System.Drawing.Point bottomLeft;
-        bool autoDims;
-        int width;
-        int height;
-        bool center;
+        private Point topLeft;
+        private Point topRight;
+        private Point bottomRight;
+        private Point bottomLeft;
+        private bool autoDims;
+        private int width;
+        private int height;
+        private bool center;
 
-        Surface quadrilateralSurface;
+        private Surface quadrilateralSurface;
     }
 }
