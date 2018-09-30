@@ -102,13 +102,11 @@ namespace QuadControl
         #endregion
 
         #region Event handler
-        // delegate event handler
-        public delegate void ValueChangedEventHandler(object sender);
-        public event ValueChangedEventHandler ValueChanged;
+        public event EventHandler ValueChanged;
 
         protected void OnValueChanged()
         {
-            this.ValueChanged?.Invoke(this);
+            this.ValueChanged?.Invoke(this, EventArgs.Empty);
         }
         #endregion
 

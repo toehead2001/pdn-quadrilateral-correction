@@ -129,7 +129,7 @@ namespace QuadrilateralCorrectionEffect
             FinishTokenUpdate();
         }
 
-        private void quadControl11_ValueChanged(object sender)
+        private void quadControl11_ValueChanged(object sender, EventArgs e)
         {
             numericUpDownTopLeftX.ValueChanged -= numericUpDownTopLeft_ValueChanged;
             numericUpDownTopLeftY.ValueChanged -= numericUpDownTopLeft_ValueChanged;

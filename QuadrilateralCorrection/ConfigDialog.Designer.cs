@@ -233,7 +233,7 @@
             this.quadControl11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.quadControl11.TabIndex = 14;
             this.quadControl11.TabStop = false;
-            this.quadControl11.ValueChanged += new QuadControl.QuadControl.ValueChangedEventHandler(this.quadControl11_ValueChanged);
+            this.quadControl11.ValueChanged += new System.EventHandler(this.quadControl11_ValueChanged);
             // 
             // numericUpDown1
             // 
