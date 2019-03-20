@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace QuadrilateralCorrectionEffect
 {
-    [DefaultEvent("ValueChanged")]
+    [DefaultEvent(nameof(ValueChanged))]
     internal class QuadControl : PictureBox
     {
         public QuadControl()
@@ -107,6 +107,7 @@ namespace QuadrilateralCorrectionEffect
         #endregion
 
         #region Event handler
+        [Category("Action")]
         public event EventHandler ValueChanged;
 
         protected void OnValueChanged()
