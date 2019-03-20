@@ -5,21 +5,21 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
 
-namespace QuadControl
+namespace QuadrilateralCorrectionEffect
 {
     [DefaultEvent("ValueChanged")]
     internal class QuadControl : PictureBox
     {
         public QuadControl()
         {
-            this.BackgroundImage = QuadrilateralCorrectionEffect.Resources.CheckerBoard;
+            this.BackgroundImage = Resources.CheckerBoard;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
             this.TabStop = false;
             this.BorderStyle = BorderStyle.FixedSingle;
 
-            using (var memoryStream = new MemoryStream(QuadrilateralCorrectionEffect.Resources.HandOpen))
+            using (var memoryStream = new MemoryStream(Resources.HandOpen))
                 handOpen = new Cursor(memoryStream);
-            using (var memoryStream = new MemoryStream(QuadrilateralCorrectionEffect.Resources.HandGrab))
+            using (var memoryStream = new MemoryStream(Resources.HandGrab))
                 handGrab = new Cursor(memoryStream);
         }
 
@@ -85,20 +85,23 @@ namespace QuadControl
             }
         }
 
-        internal byte SelectedNub
+        internal QuadrilateralCorrectionEffect.Nub SelectedNub
         {
             get
             {
                 if (nubTL.Selected)
-                    return 1;
-                else if (nubTR.Selected)
-                    return 2;
-                else if (nubBR.Selected)
-                    return 3;
-                else if (nubBL.Selected)
-                    return 4;
+                    return QuadrilateralCorrectionEffect.Nub.TopLeft;
 
-                return 0;
+                if (nubTR.Selected)
+                    return QuadrilateralCorrectionEffect.Nub.TopRight;
+
+                if (nubBR.Selected)
+                    return QuadrilateralCorrectionEffect.Nub.BottomRight;
+
+                if (nubBL.Selected)
+                    return QuadrilateralCorrectionEffect.Nub.BottomLeft;
+
+                return QuadrilateralCorrectionEffect.Nub.None;
             }
         }
         #endregion
@@ -509,5 +512,14 @@ namespace QuadControl
             internal bool Hovered { get; set; }
             internal bool Selected { get; set; }
         }
+    }
+
+    internal enum Nub
+    {
+        None,
+        TopLeft,
+        TopRight,
+        BottomRight,
+        BottomLeft
     }
 }

@@ -39,7 +39,7 @@
             this.numericUpDownBottomLeftY = new System.Windows.Forms.NumericUpDown();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.quadControl11 = new QuadControl.QuadControl();
+            this.quadControl11 = new QuadrilateralCorrectionEffect.QuadControl();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.checkBoxAutoDims = new System.Windows.Forms.CheckBox();
@@ -463,7 +463,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownBottomLeftY;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
-        private QuadControl.QuadControl quadControl11;
+        private QuadrilateralCorrectionEffect.QuadControl quadControl11;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.CheckBox checkBoxAutoDims;

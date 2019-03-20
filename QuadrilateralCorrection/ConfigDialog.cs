@@ -290,7 +290,7 @@ namespace QuadrilateralCorrectionEffect
 
         private void QuadrilateralCorrectionConfigDialog_KeyDown(object sender, KeyEventArgs e)
         {
-            if (quadControl11.SelectedNub == 0)
+            if (quadControl11.SelectedNub == Nub.None)
                 return;
 
             e.Handled = true;
@@ -321,19 +321,19 @@ namespace QuadrilateralCorrectionEffect
 
             switch (quadControl11.SelectedNub)
             {
-                case 1:
+                case Nub.TopLeft:
                     numericUpDownTopLeftX.Value = Clamp(numericUpDownTopLeftX.Value + horAmount, numericUpDownTopLeftX.Minimum, numericUpDownTopLeftX.Maximum);
                     numericUpDownTopLeftY.Value = Clamp(numericUpDownTopLeftY.Value + verAmount, numericUpDownTopLeftY.Minimum, numericUpDownTopLeftY.Maximum);
                     break;
-                case 2:
+                case Nub.TopRight:
                     numericUpDownTopRightX.Value = Clamp(numericUpDownTopRightX.Value + horAmount, numericUpDownTopRightX.Minimum, numericUpDownTopRightX.Maximum);
                     numericUpDownTopRightY.Value = Clamp(numericUpDownTopRightY.Value + verAmount, numericUpDownTopRightY.Minimum, numericUpDownTopRightY.Maximum);
                     break;
-                case 3:
+                case Nub.BottomRight:
                     numericUpDownBottomRightX.Value = Clamp(numericUpDownBottomRightX.Value + horAmount, numericUpDownBottomRightX.Minimum, numericUpDownBottomRightX.Maximum);
                     numericUpDownBottomRightY.Value = Clamp(numericUpDownBottomRightY.Value + verAmount, numericUpDownBottomRightY.Minimum, numericUpDownBottomRightY.Maximum);
                     break;
-                case 4:
+                case Nub.BottomLeft:
                     numericUpDownBottomLeftX.Value = Clamp(numericUpDownBottomLeftX.Value + horAmount, numericUpDownBottomLeftX.Minimum, numericUpDownBottomLeftX.Maximum);
                     numericUpDownBottomLeftY.Value = Clamp(numericUpDownBottomLeftY.Value + verAmount, numericUpDownBottomLeftY.Minimum, numericUpDownBottomLeftY.Maximum);
                     break;
