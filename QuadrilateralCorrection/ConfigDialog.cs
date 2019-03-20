@@ -300,31 +300,19 @@ namespace QuadrilateralCorrectionEffect
 
             if (e.KeyCode == Keys.Up)
             {
-                if (e.Modifiers == Keys.Control)
-                    verAmount = -5;
-                else
-                    verAmount = -1;
+                verAmount = (e.Modifiers == Keys.Control) ? -5 : -1;
             }
-            else if ((e.KeyCode == Keys.Right))
+            else if (e.KeyCode == Keys.Right)
             {
-                if (e.Modifiers == Keys.Control)
-                    horAmount = 5;
-                else
-                    horAmount = 1;
+                horAmount = (e.Modifiers == Keys.Control) ? 5 : 1;
             }
-            else if ((e.KeyCode == Keys.Down))
+            else if (e.KeyCode == Keys.Down)
             {
-                if (e.Modifiers == Keys.Control)
-                    verAmount = 5;
-                else
-                    verAmount = 1;
+                verAmount = (e.Modifiers == Keys.Control) ? 5 : 1;
             }
-            else if ((e.KeyCode == Keys.Left))
+            else if (e.KeyCode == Keys.Left)
             {
-                if (e.Modifiers == Keys.Control)
-                    horAmount = -5;
-                else
-                    horAmount = -1;
+                horAmount = (e.Modifiers == Keys.Control)  ? -5 : -1;
             }
             else
             {
