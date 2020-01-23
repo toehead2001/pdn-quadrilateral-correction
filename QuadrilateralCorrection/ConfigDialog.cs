@@ -31,7 +31,7 @@ namespace QuadrilateralCorrectionEffect
 
         private void Initializers()
         {
-            selection = Selection.GetBoundsInt();
+            selection = EnvironmentParameters.SelectionBounds;
 
             foreach (Control control in this.Controls)
             {
@@ -54,7 +54,7 @@ namespace QuadrilateralCorrectionEffect
             numericUpDown1.Maximum = selection.Width;
             numericUpDown2.Maximum = selection.Height;
 
-            srcImage = EffectSourceSurface.CreateAliasedBitmap(selection);
+            srcImage = EnvironmentParameters.SourceSurface.CreateAliasedBitmap(selection);
 
             quadControl11.Image = srcImage;
 
