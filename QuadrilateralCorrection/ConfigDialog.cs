@@ -1,7 +1,9 @@
 ﻿using PaintDotNet.Effects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QuadrilateralCorrectionEffect
@@ -15,11 +17,17 @@ namespace QuadrilateralCorrectionEffect
         public QuadrilateralCorrectionConfigDialog()
         {
             InitializeComponent();
+
+            foreach (Control control in this.Controls.OfType<NumericUpDown>())
+            {
+                control.ForeColor = this.ForeColor;
+                control.BackColor = this.BackColor;
+            }
         }
 
-        private void QuadrilateralCorrectionConfigDialog_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            Initializers();
+            base.OnLoad(e);
 
             quadControl11.Width = uiImgBounds.Width + 2;
             quadControl11.Height = uiImgBounds.Height + 2;
@@ -32,15 +40,6 @@ namespace QuadrilateralCorrectionEffect
         private void Initializers()
         {
             selection = EnvironmentParameters.SelectionBounds;
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is NumericUpDown)
-                {
-                    control.ForeColor = this.ForeColor;
-                    control.BackColor = this.BackColor;
-                }
-            }
 
             numericUpDownTopLeftX.Maximum = selection.Width - 1;
             numericUpDownTopLeftY.Maximum = selection.Height - 1;
@@ -288,10 +287,13 @@ namespace QuadrilateralCorrectionEffect
             numericUpDown2.Text = numericUpDown2.Value.ToString();
         }
 
-        private void QuadrilateralCorrectionConfigDialog_KeyDown(object sender, KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
             if (quadControl11.SelectedNub == Nub.None)
+            {
+                base.OnKeyDown(e);
                 return;
+            }
 
             e.Handled = true;
 
@@ -313,6 +315,7 @@ namespace QuadrilateralCorrectionEffect
                     horAmount = (e.Modifiers == Keys.Control) ? -5 : -1;
                     break;
                 default:
+                    base.OnKeyDown(e);
                     return;
             }
 
@@ -335,20 +338,25 @@ namespace QuadrilateralCorrectionEffect
                     numericUpDownBottomLeftY.Value = Clamp(numericUpDownBottomLeftY.Value + verAmount, numericUpDownBottomLeftY.Minimum, numericUpDownBottomLeftY.Maximum);
                     break;
             }
+
+            base.OnKeyDown(e);
         }
 
-        private void QuadrilateralCorrectionConfigDialog_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
+        protected override void OnHelpButtonClicked(CancelEventArgs e)
         {
             e.Cancel = true;
-            string helpMessage = "The control nubs can be manipulated with the mouse in the following three ways:\n";
-            helpMessage += "\n";
-            helpMessage += "Left Mouse Button — Grab and Drag\n";
-            helpMessage += "\n";
-            helpMessage += "Middle Mouse Button — Grab and Drag with a Dead Zone\n";
-            helpMessage += "\n";
-            helpMessage += "Right Mouse Button — Select nub for Keyboard Arrow manipulation\n";
-            helpMessage += "    Arrow — 1px\n";
-            helpMessage += "    Ctrl + Arrow — 5px\n";
+            base.OnHelpButtonClicked(e);
+
+            const string helpMessage = "The control nubs can be manipulated with the mouse in the following three ways:\r\n"
+            + "\r\n"
+            + "Left Mouse Button — Grab and Drag\r\n"
+            + "\r\n"
+            + "Middle Mouse Button — Grab and Drag with a Dead Zone\r\n"
+            + "\r\n"
+            + "Right Mouse Button — Select nub for Keyboard Arrow manipulation\r\n"
+            + "    Arrow — 1px\r\n"
+            + "    Ctrl + Arrow — 5px\r\n";
+
             MessageBox.Show(helpMessage, "Help");
         }
     }

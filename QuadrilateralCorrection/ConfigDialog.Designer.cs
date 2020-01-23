@@ -432,9 +432,6 @@
             this.Name = "QuadrilateralCorrectionConfigDialog";
             this.Text = "Quadrilateral Correction";
             this.UseAppThemeColors = true;
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.QuadrilateralCorrectionConfigDialog_HelpButtonClicked);
-            this.Load += new System.EventHandler(this.QuadrilateralCorrectionConfigDialog_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QuadrilateralCorrectionConfigDialog_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopRightX)).EndInit();
