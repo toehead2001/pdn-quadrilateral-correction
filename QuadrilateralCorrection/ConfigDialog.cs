@@ -298,25 +298,22 @@ namespace QuadrilateralCorrectionEffect
             int horAmount = 0;
             int verAmount = 0;
 
-            if (e.KeyCode == Keys.Up)
+            switch (e.KeyCode)
             {
-                verAmount = (e.Modifiers == Keys.Control) ? -5 : -1;
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                horAmount = (e.Modifiers == Keys.Control) ? 5 : 1;
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                verAmount = (e.Modifiers == Keys.Control) ? 5 : 1;
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                horAmount = (e.Modifiers == Keys.Control)  ? -5 : -1;
-            }
-            else
-            {
-                return;
+                case Keys.Up:
+                    verAmount = (e.Modifiers == Keys.Control) ? -5 : -1;
+                    break;
+                case Keys.Right:
+                    horAmount = (e.Modifiers == Keys.Control) ? 5 : 1;
+                    break;
+                case Keys.Down:
+                    verAmount = (e.Modifiers == Keys.Control) ? 5 : 1;
+                    break;
+                case Keys.Left:
+                    horAmount = (e.Modifiers == Keys.Control) ? -5 : -1;
+                    break;
+                default:
+                    return;
             }
 
             switch (quadControl11.SelectedNub)
