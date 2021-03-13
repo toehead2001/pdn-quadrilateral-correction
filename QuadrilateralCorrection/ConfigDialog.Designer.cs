@@ -55,6 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxCenter = new System.Windows.Forms.CheckBox();
             this.panelDivider = new System.Windows.Forms.Panel();
+            this.resetAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopRightX)).BeginInit();
@@ -389,6 +390,17 @@
             this.panelDivider.Size = new System.Drawing.Size(1, 501);
             this.panelDivider.TabIndex = 25;
             // 
+            // resetAllButton
+            // 
+            this.resetAllButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.resetAllButton.Location = new System.Drawing.Point(632, 285);
+            this.resetAllButton.Name = "resetAllButton";
+            this.resetAllButton.Size = new System.Drawing.Size(60, 23);
+            this.resetAllButton.TabIndex = 26;
+            this.resetAllButton.Text = "Reset All";
+            this.resetAllButton.UseVisualStyleBackColor = true;
+            this.resetAllButton.Click += new System.EventHandler(this.resetAllButton_Click);
+            // 
             // QuadrilateralCorrectionConfigDialog
             // 
             this.AcceptButton = this.buttonOK;
@@ -397,6 +409,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(704, 526);
+            this.Controls.Add(this.resetAllButton);
             this.Controls.Add(this.panelDivider);
             this.Controls.Add(this.checkBoxCenter);
             this.Controls.Add(this.label10);
@@ -476,5 +489,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBoxCenter;
         private System.Windows.Forms.Panel panelDivider;
+        private System.Windows.Forms.Button resetAllButton;
     }
 }

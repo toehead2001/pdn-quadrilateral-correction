@@ -359,5 +359,17 @@ namespace QuadrilateralCorrectionEffect
 
             MessageBox.Show(helpMessage, "Help");
         }
+
+        private void resetAllButton_Click(object sender, EventArgs e)
+        {
+            numericUpDownTopLeftX.Value = numericUpDownTopLeftX.Minimum;
+            numericUpDownTopLeftY.Value = numericUpDownTopLeftY.Minimum;
+            numericUpDownTopRightX.Value = numericUpDownTopRightX.Maximum;
+            numericUpDownTopRightY.Value = numericUpDownTopRightY.Minimum;
+            numericUpDownBottomRightX.Value = numericUpDownBottomRightX.Maximum;
+            numericUpDownBottomRightY.Value = numericUpDownBottomRightY.Maximum;
+            numericUpDownBottomLeftX.Value = numericUpDownBottomLeftX.Minimum;
+            numericUpDownBottomLeftY.Value = numericUpDownBottomLeftY.Maximum;
+        }
     }
 }
