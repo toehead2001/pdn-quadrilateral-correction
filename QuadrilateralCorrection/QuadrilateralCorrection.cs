@@ -25,7 +25,7 @@ namespace QuadrilateralCorrectionEffect
         private static readonly Image StaticIcon = new Bitmap(typeof(QuadrilateralCorrectionEffectPlugin), "Icon.png");
 
         public QuadrilateralCorrectionEffectPlugin()
-            : base("Quadrilateral Correction", StaticIcon, "Tools", EffectFlags.Configurable)
+            : base("Quadrilateral Correction", StaticIcon, "Tools", new EffectOptions { Flags = EffectFlags.Configurable })
         {
         }
 
@@ -60,8 +60,8 @@ namespace QuadrilateralCorrectionEffect
                 NewHeight = height
             };
 
-            Rectangle selection = EnvironmentParameters.GetSelection(srcArgs.Surface.Bounds).GetBoundsInt();
-            PdnRegion exactSelection = EnvironmentParameters.GetSelection(srcArgs.Surface.Bounds);
+            Rectangle selection = EnvironmentParameters.SelectionBounds;
+            PdnRegion exactSelection = EnvironmentParameters.GetSelectionAsPdnRegion();
 
             Bitmap quadTransOutput;
             try
