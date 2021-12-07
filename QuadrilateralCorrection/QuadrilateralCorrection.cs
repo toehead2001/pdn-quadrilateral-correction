@@ -95,7 +95,7 @@ namespace QuadrilateralCorrectionEffect
             quadrilateralSurface = Surface.CopyFromBitmap(alignedImage);
             alignedImage.Dispose();
 
-            dstArgs.Surface.Clear(exactSelection, Color.Transparent);
+            dstArgs.Surface.Fill(exactSelection, Color.Transparent);
             dstArgs.Surface.CopySurface(quadrilateralSurface, exactSelection);
 
             base.OnSetRenderInfo(newToken, dstArgs, srcArgs);
