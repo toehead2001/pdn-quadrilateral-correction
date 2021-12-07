@@ -168,8 +168,8 @@ namespace QuadrilateralCorrectionEffect
             {
                 numericUpDown1.Enabled = false;
                 numericUpDown2.Enabled = false;
-                label9.Enabled = false;
-                label10.Enabled = false;
+                //label9.Enabled = false;
+                //label10.Enabled = false;
 
                 numericUpDown1.Text = "-";
                 numericUpDown2.Text = "-";
@@ -178,8 +178,8 @@ namespace QuadrilateralCorrectionEffect
             {
                 numericUpDown1.Enabled = true;
                 numericUpDown2.Enabled = true;
-                label9.Enabled = true;
-                label10.Enabled = true;
+                //label9.Enabled = true;
+                //label10.Enabled = true;
                 SetDimensionValues();
             }
 
