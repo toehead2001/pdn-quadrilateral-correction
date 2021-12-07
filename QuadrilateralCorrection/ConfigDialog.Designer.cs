@@ -79,7 +79,7 @@
             0,
             0});
             this.numericUpDownTopLeftX.Name = "numericUpDownTopLeftX";
-            this.numericUpDownTopLeftX.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownTopLeftX.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownTopLeftX.TabIndex = 0;
             this.numericUpDownTopLeftX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopLeftX.ValueChanged += new System.EventHandler(this.numericUpDownTopLeft_ValueChanged);
@@ -95,7 +95,7 @@
             0,
             0});
             this.numericUpDownTopLeftY.Name = "numericUpDownTopLeftY";
-            this.numericUpDownTopLeftY.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownTopLeftY.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownTopLeftY.TabIndex = 1;
             this.numericUpDownTopLeftY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopLeftY.ValueChanged += new System.EventHandler(this.numericUpDownTopLeft_ValueChanged);
@@ -111,7 +111,7 @@
             0,
             0});
             this.numericUpDownTopRightX.Name = "numericUpDownTopRightX";
-            this.numericUpDownTopRightX.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownTopRightX.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownTopRightX.TabIndex = 2;
             this.numericUpDownTopRightX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopRightX.ValueChanged += new System.EventHandler(this.numericUpDownTopRight_ValueChanged);
@@ -127,7 +127,7 @@
             0,
             0});
             this.numericUpDownTopRightY.Name = "numericUpDownTopRightY";
-            this.numericUpDownTopRightY.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownTopRightY.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownTopRightY.TabIndex = 3;
             this.numericUpDownTopRightY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownTopRightY.ValueChanged += new System.EventHandler(this.numericUpDownTopRight_ValueChanged);
@@ -143,7 +143,7 @@
             0,
             0});
             this.numericUpDownBottomRightX.Name = "numericUpDownBottomRightX";
-            this.numericUpDownBottomRightX.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownBottomRightX.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownBottomRightX.TabIndex = 4;
             this.numericUpDownBottomRightX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomRightX.ValueChanged += new System.EventHandler(this.numericUpDownBottomRight_ValueChanged);
@@ -159,7 +159,7 @@
             0,
             0});
             this.numericUpDownBottomRightY.Name = "numericUpDownBottomRightY";
-            this.numericUpDownBottomRightY.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownBottomRightY.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownBottomRightY.TabIndex = 5;
             this.numericUpDownBottomRightY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomRightY.ValueChanged += new System.EventHandler(this.numericUpDownBottomRight_ValueChanged);
@@ -175,7 +175,7 @@
             0,
             0});
             this.numericUpDownBottomLeftX.Name = "numericUpDownBottomLeftX";
-            this.numericUpDownBottomLeftX.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownBottomLeftX.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownBottomLeftX.TabIndex = 6;
             this.numericUpDownBottomLeftX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomLeftX.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeft_ValueChanged);
@@ -191,7 +191,7 @@
             0,
             0});
             this.numericUpDownBottomLeftY.Name = "numericUpDownBottomLeftY";
-            this.numericUpDownBottomLeftY.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownBottomLeftY.Size = new System.Drawing.Size(60, 23);
             this.numericUpDownBottomLeftY.TabIndex = 7;
             this.numericUpDownBottomLeftY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownBottomLeftY.ValueChanged += new System.EventHandler(this.numericUpDownBottomLeft_ValueChanged);
@@ -224,6 +224,7 @@
             // quadControl11
             // 
             this.quadControl11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("quadControl11.BackgroundImage")));
+            this.quadControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.quadControl11.Location = new System.Drawing.Point(12, 12);
             this.quadControl11.Name = "quadControl11";
             this.quadControl11.NubBL = new System.Drawing.Point(0, 500);
@@ -241,7 +242,7 @@
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown1.Location = new System.Drawing.Point(632, 348);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(60, 23);
             this.numericUpDown1.TabIndex = 9;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
@@ -252,7 +253,7 @@
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown2.Location = new System.Drawing.Point(632, 377);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDown2.Size = new System.Drawing.Size(60, 23);
             this.numericUpDown2.TabIndex = 10;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
@@ -262,9 +263,9 @@
             // 
             this.checkBoxAutoDims.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxAutoDims.AutoSize = true;
-            this.checkBoxAutoDims.Location = new System.Drawing.Point(541, 325);
+            this.checkBoxAutoDims.Location = new System.Drawing.Point(538, 325);
             this.checkBoxAutoDims.Name = "checkBoxAutoDims";
-            this.checkBoxAutoDims.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxAutoDims.Size = new System.Drawing.Size(117, 19);
             this.checkBoxAutoDims.TabIndex = 8;
             this.checkBoxAutoDims.Text = "Auto Dimensions";
             this.checkBoxAutoDims.UseVisualStyleBackColor = true;
@@ -276,7 +277,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(538, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(59, 15);
             this.label1.TabIndex = 15;
             this.label1.Text = "Top Left X";
             // 
@@ -286,7 +287,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(538, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 16;
             this.label2.Text = "Top Left Y";
             // 
@@ -296,7 +297,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(538, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "Top Right X";
             // 
@@ -306,7 +307,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(538, 115);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 18;
             this.label4.Text = "Top Right Y";
             // 
@@ -316,7 +317,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(538, 158);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.Size = new System.Drawing.Size(88, 15);
             this.label5.TabIndex = 19;
             this.label5.Text = "Bottom Right X";
             // 
@@ -326,7 +327,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(538, 187);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 13);
+            this.label6.Size = new System.Drawing.Size(88, 15);
             this.label6.TabIndex = 20;
             this.label6.Text = "Bottom Right Y";
             // 
@@ -336,7 +337,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(538, 230);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.Size = new System.Drawing.Size(80, 15);
             this.label7.TabIndex = 21;
             this.label7.Text = "Bottom Left X";
             // 
@@ -346,7 +347,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(538, 259);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.Size = new System.Drawing.Size(80, 15);
             this.label8.TabIndex = 22;
             this.label8.Text = "Bottom Left Y";
             // 
@@ -356,7 +357,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(538, 350);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 13);
+            this.label9.Size = new System.Drawing.Size(39, 15);
             this.label9.TabIndex = 23;
             this.label9.Text = "Width";
             // 
@@ -366,7 +367,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(538, 379);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.Size = new System.Drawing.Size(43, 15);
             this.label10.TabIndex = 24;
             this.label10.Text = "Height";
             // 
@@ -374,9 +375,9 @@
             // 
             this.checkBoxCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxCenter.AutoSize = true;
-            this.checkBoxCenter.Location = new System.Drawing.Point(541, 426);
+            this.checkBoxCenter.Location = new System.Drawing.Point(540, 426);
             this.checkBoxCenter.Name = "checkBoxCenter";
-            this.checkBoxCenter.Size = new System.Drawing.Size(60, 17);
+            this.checkBoxCenter.Size = new System.Drawing.Size(61, 19);
             this.checkBoxCenter.TabIndex = 11;
             this.checkBoxCenter.Text = "Center";
             this.checkBoxCenter.UseVisualStyleBackColor = true;
@@ -437,11 +438,9 @@
             this.Controls.Add(this.numericUpDownTopLeftY);
             this.Controls.Add(this.numericUpDownTopLeftX);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.HelpButton = true;
             this.KeyPreview = true;
-            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "QuadrilateralCorrectionConfigDialog";
             this.Text = "Quadrilateral Correction";
             this.UseAppThemeColors = true;
