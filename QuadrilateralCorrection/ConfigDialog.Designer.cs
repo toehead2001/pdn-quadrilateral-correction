@@ -223,7 +223,6 @@
             // 
             // quadControl11
             // 
-            this.quadControl11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("quadControl11.BackgroundImage")));
             this.quadControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.quadControl11.Location = new System.Drawing.Point(12, 12);
             this.quadControl11.Name = "quadControl11";

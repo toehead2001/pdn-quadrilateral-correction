@@ -31,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.png" />
+    <EmbeddedResource Include="Resources\CheckerBoard.png" />
+    <EmbeddedResource Include="Resources\HandGrab.cur" />
+    <EmbeddedResource Include="Resources\HandOpen.cur" />
   </ItemGroup>
   <PropertyGroup />
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

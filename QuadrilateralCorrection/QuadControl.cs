@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.IO;
 using System.Windows.Forms;
 
 namespace QuadrilateralCorrectionEffect
@@ -12,15 +11,13 @@ namespace QuadrilateralCorrectionEffect
     {
         public QuadControl()
         {
-            this.BackgroundImage = Resources.CheckerBoard;
+            this.BackgroundImage = new Bitmap(typeof(QuadControl), "Resources.CheckerBoard.png");
             this.SizeMode = PictureBoxSizeMode.StretchImage;
             this.TabStop = false;
             this.BorderStyle = BorderStyle.FixedSingle;
 
-            using (var memoryStream = new MemoryStream(Resources.HandOpen))
-                handOpen = new Cursor(memoryStream);
-            using (var memoryStream = new MemoryStream(Resources.HandGrab))
-                handGrab = new Cursor(memoryStream);
+            this.handOpen = new Cursor(typeof(QuadControl), "Resources.HandOpen.cur");
+            this.handGrab = new Cursor(typeof(QuadControl), "Resources.HandGrab.cur");
         }
 
         #region Variables
