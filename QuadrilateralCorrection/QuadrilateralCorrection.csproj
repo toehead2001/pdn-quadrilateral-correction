@@ -36,6 +36,9 @@
     <EmbeddedResource Include="Resources\HandOpen.cur" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="ILRepack" Version="2.0.18" />
   </ItemGroup>
   <PropertyGroup />

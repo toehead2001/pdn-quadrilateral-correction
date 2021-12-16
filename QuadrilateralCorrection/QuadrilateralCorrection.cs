@@ -67,7 +67,9 @@ namespace QuadrilateralCorrectionEffect
             try
             {
                 using (Bitmap srcImage = srcArgs.Surface.CreateAliasedBitmap(selection))
+                {
                     quadTransOutput = quadTrans.Apply(srcImage);
+                }
             }
             catch
             {

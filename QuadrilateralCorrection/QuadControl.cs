@@ -9,15 +9,15 @@ namespace QuadrilateralCorrectionEffect
     [DefaultEvent(nameof(ValueChanged))]
     internal class QuadControl : PictureBox
     {
+        private static readonly Cursor handOpen = new Cursor(typeof(QuadControl), "Resources.HandOpen.cur");
+        private static readonly Cursor handGrab = new Cursor(typeof(QuadControl), "Resources.HandGrab.cur");
+
         public QuadControl()
         {
             this.BackgroundImage = new Bitmap(typeof(QuadControl), "Resources.CheckerBoard.png");
             this.SizeMode = PictureBoxSizeMode.StretchImage;
             this.TabStop = false;
             this.BorderStyle = BorderStyle.FixedSingle;
-
-            this.handOpen = new Cursor(typeof(QuadControl), "Resources.HandOpen.cur");
-            this.handGrab = new Cursor(typeof(QuadControl), "Resources.HandGrab.cur");
         }
 
         #region Variables
@@ -27,8 +27,6 @@ namespace QuadrilateralCorrectionEffect
         private const int RadiusLarge = 5;
         private const int RadiusHover = 16;
         private const int DeadZone = 30;
-        private readonly Cursor handOpen;
-        private readonly Cursor handGrab;
         private Nub nubTL, nubTR, nubBR, nubBL; // four Nubs to store coordinates and activation states
         #endregion
 

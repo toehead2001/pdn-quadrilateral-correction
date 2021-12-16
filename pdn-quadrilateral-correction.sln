@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadrilateralCorrection", "QuadrilateralCorrection\QuadrilateralCorrection.csproj", "{9486FC41-1E37-451D-AC15-6CD5F67345E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadrilateralCorrection", "QuadrilateralCorrection\QuadrilateralCorrection.csproj", "{9486FC41-1E37-451D-AC15-6CD5F67345E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{34BB60E9-5F07-4A5C-BA5A-22862A8DE30D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D93AE67F-D6F5-4EB9-92B9-478E1146B7E2}
 	EndGlobalSection
 EndGlobal
