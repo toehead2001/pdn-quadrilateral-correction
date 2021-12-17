@@ -17,6 +17,7 @@ namespace QuadrilateralCorrectionEffect
         public QuadrilateralCorrectionConfigDialog()
         {
             InitializeComponent();
+            this.UseAppThemeColors = true;
 
             foreach (Control control in this.Controls.OfType<NumericUpDown>())
             {

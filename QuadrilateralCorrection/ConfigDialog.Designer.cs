@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuadrilateralCorrectionConfigDialog));
             this.numericUpDownTopLeftX = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTopLeftY = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTopRightX = new System.Windows.Forms.NumericUpDown();
@@ -406,7 +405,6 @@
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(704, 526);
             this.Controls.Add(this.resetAllButton);
@@ -437,12 +435,10 @@
             this.Controls.Add(this.numericUpDownTopLeftY);
             this.Controls.Add(this.numericUpDownTopLeftX);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.Black;
             this.HelpButton = true;
             this.KeyPreview = true;
             this.Name = "QuadrilateralCorrectionConfigDialog";
             this.Text = "Quadrilateral Correction";
-            this.UseAppThemeColors = true;
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopRightX)).EndInit();
